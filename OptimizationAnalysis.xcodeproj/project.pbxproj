@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AE729724C2628DE5E9A5B6C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAA8E25BADBC04F690693EF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EC943EF91A9818F0007AA881 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC943EF81A9818F0007AA881 /* ECSlidingViewController.m */; };
 		ECC2F4461A9810EC00051078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4451A9810EC00051078 /* AppDelegate.swift */; };
-		ECC2F4481A9810EC00051078 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4471A9810EC00051078 /* ViewController.swift */; };
-		ECC2F44B1A9810EC00051078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F4491A9810EC00051078 /* Main.storyboard */; };
 		ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F44C1A9810EC00051078 /* Images.xcassets */; };
 		ECC2F4501A9810EC00051078 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */; };
 		ECC2F45C1A9810EC00051078 /* OptimizationAnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F45B1A9810EC00051078 /* OptimizationAnalysisTests.swift */; };
+		ECC2F46A1A98112300051078 /* AlgorithmPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4661A98112300051078 /* AlgorithmPickerTableViewController.swift */; };
+		ECC2F46B1A98112300051078 /* FitFunctionPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4671A98112300051078 /* FitFunctionPickerTableViewController.swift */; };
+		ECC2F46C1A98112300051078 /* ParameterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4681A98112300051078 /* ParameterSelectionViewController.swift */; };
+		ECC2F46D1A98112300051078 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4691A98112300051078 /* BarChartViewController.swift */; };
+		ECC2F4751A98113F00051078 /* HillClimbing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F46F1A98113F00051078 /* HillClimbing.swift */; };
+		ECC2F4761A98113F00051078 /* SteepestAscentHillClimbing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4701A98113F00051078 /* SteepestAscentHillClimbing.swift */; };
+		ECC2F4771A98113F00051078 /* SteepestAscentHillClimbingWithReplacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4711A98113F00051078 /* SteepestAscentHillClimbingWithReplacement.swift */; };
+		ECC2F4781A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4721A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift */; };
+		ECC2F4791A98113F00051078 /* SimulatedAnnealing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4731A98113F00051078 /* SimulatedAnnealing.swift */; };
+		ECC2F47A1A98113F00051078 /* TabuSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4741A98113F00051078 /* TabuSearch.swift */; };
+		ECC2F47D1A98115C00051078 /* FitFunctionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F47C1A98115C00051078 /* FitFunctionManager.swift */; };
+		ECC2F4831A9811D000051078 /* AlgorithmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F47F1A9811D000051078 /* AlgorithmManager.swift */; };
+		ECC2F4841A9811D000051078 /* DisplayInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4801A9811D000051078 /* DisplayInformation.swift */; };
+		ECC2F4851A9811D000051078 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4811A9811D000051078 /* Report.swift */; };
+		ECC2F4861A9811D000051078 /* AverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4821A9811D000051078 /* AverageReport.swift */; };
+		ECC2F4881A9811DD00051078 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4871A9811DD00051078 /* Utils.swift */; };
+		ECC2F48B1A98133200051078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F48A1A98133200051078 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +43,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F3B5E688688503C4F6F0B21 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AB15836E6FB68645D8E34EC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BDAA8E25BADBC04F690693EF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC943EF71A9818F0007AA881 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		EC943EF81A9818F0007AA881 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		ECC2F4401A9810EC00051078 /* OptimizationAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OptimizationAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC2F4441A9810EC00051078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC2F4451A9810EC00051078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECC2F4471A9810EC00051078 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ECC2F44A1A9810EC00051078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECC2F44C1A9810EC00051078 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ECC2F44F1A9810EC00051078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ECC2F4551A9810EC00051078 /* OptimizationAnalysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OptimizationAnalysisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC2F45A1A9810EC00051078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC2F45B1A9810EC00051078 /* OptimizationAnalysisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationAnalysisTests.swift; sourceTree = "<group>"; };
+		ECC2F4661A98112300051078 /* AlgorithmPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmPickerTableViewController.swift; sourceTree = "<group>"; };
+		ECC2F4671A98112300051078 /* FitFunctionPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitFunctionPickerTableViewController.swift; sourceTree = "<group>"; };
+		ECC2F4681A98112300051078 /* ParameterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterSelectionViewController.swift; sourceTree = "<group>"; };
+		ECC2F4691A98112300051078 /* BarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
+		ECC2F46F1A98113F00051078 /* HillClimbing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HillClimbing.swift; sourceTree = "<group>"; };
+		ECC2F4701A98113F00051078 /* SteepestAscentHillClimbing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteepestAscentHillClimbing.swift; sourceTree = "<group>"; };
+		ECC2F4711A98113F00051078 /* SteepestAscentHillClimbingWithReplacement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteepestAscentHillClimbingWithReplacement.swift; sourceTree = "<group>"; };
+		ECC2F4721A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteepestAscentHillClimbingWithRandomRestarts.swift; sourceTree = "<group>"; };
+		ECC2F4731A98113F00051078 /* SimulatedAnnealing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatedAnnealing.swift; sourceTree = "<group>"; };
+		ECC2F4741A98113F00051078 /* TabuSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabuSearch.swift; sourceTree = "<group>"; };
+		ECC2F47C1A98115C00051078 /* FitFunctionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitFunctionManager.swift; sourceTree = "<group>"; };
+		ECC2F47F1A9811D000051078 /* AlgorithmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmManager.swift; sourceTree = "<group>"; };
+		ECC2F4801A9811D000051078 /* DisplayInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayInformation.swift; sourceTree = "<group>"; };
+		ECC2F4811A9811D000051078 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		ECC2F4821A9811D000051078 /* AverageReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageReport.swift; sourceTree = "<group>"; };
+		ECC2F4871A9811DD00051078 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		ECC2F48A1A98133200051078 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ECC2F48C1A98140E00051078 /* OptimizationAnalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OptimizationAnalysis-Bridging-Header.h"; sourceTree = "<group>"; };
+		ECC2F48F1A98162200051078 /* JBChartView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JBChartView.framework; path = "Pods/build/Debug-iphoneos/Pods/JBChartView.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE729724C2628DE5E9A5B6C /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +96,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B05A1BFE7169DA67FD1AB5BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB15836E6FB68645D8E34EC5 /* Pods.debug.xcconfig */,
+				4F3B5E688688503C4F6F0B21 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B4EBFC9B099AF232910E0E94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2F48F1A98162200051078 /* JBChartView.framework */,
+				BDAA8E25BADBC04F690693EF /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ECC2F4371A9810EC00051078 = {
 			isa = PBXGroup;
 			children = (
 				ECC2F4421A9810EC00051078 /* OptimizationAnalysis */,
 				ECC2F4581A9810EC00051078 /* OptimizationAnalysisTests */,
 				ECC2F4411A9810EC00051078 /* Products */,
+				B05A1BFE7169DA67FD1AB5BD /* Pods */,
+				B4EBFC9B099AF232910E0E94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +137,13 @@
 		ECC2F4421A9810EC00051078 /* OptimizationAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				ECC2F4451A9810EC00051078 /* AppDelegate.swift */,
-				ECC2F4471A9810EC00051078 /* ViewController.swift */,
-				ECC2F4491A9810EC00051078 /* Main.storyboard */,
-				ECC2F44C1A9810EC00051078 /* Images.xcassets */,
-				ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */,
+				ECC2F4891A9811F800051078 /* Storyboard / Launch */,
+				ECC2F4651A98110100051078 /* View Controllers */,
+				ECC2F47E1A9811C800051078 /* Data Models */,
+				ECC2F47B1A98115100051078 /* Fit Functions */,
+				ECC2F46E1A98113000051078 /* Algorithms */,
 				ECC2F4431A9810EC00051078 /* Supporting Files */,
+				ECC2F48C1A98140E00051078 /* OptimizationAnalysis-Bridging-Header.h */,
 			);
 			path = OptimizationAnalysis;
 			sourceTree = "<group>";
@@ -90,6 +151,11 @@
 		ECC2F4431A9810EC00051078 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EC943EF71A9818F0007AA881 /* ECSlidingViewController.h */,
+				EC943EF81A9818F0007AA881 /* ECSlidingViewController.m */,
+				ECC2F44C1A9810EC00051078 /* Images.xcassets */,
+				ECC2F4871A9811DD00051078 /* Utils.swift */,
+				ECC2F4451A9810EC00051078 /* AppDelegate.swift */,
 				ECC2F4441A9810EC00051078 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -112,6 +178,58 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ECC2F4651A98110100051078 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2F4661A98112300051078 /* AlgorithmPickerTableViewController.swift */,
+				ECC2F4671A98112300051078 /* FitFunctionPickerTableViewController.swift */,
+				ECC2F4681A98112300051078 /* ParameterSelectionViewController.swift */,
+				ECC2F4691A98112300051078 /* BarChartViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		ECC2F46E1A98113000051078 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2F46F1A98113F00051078 /* HillClimbing.swift */,
+				ECC2F4701A98113F00051078 /* SteepestAscentHillClimbing.swift */,
+				ECC2F4711A98113F00051078 /* SteepestAscentHillClimbingWithReplacement.swift */,
+				ECC2F4721A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift */,
+				ECC2F4731A98113F00051078 /* SimulatedAnnealing.swift */,
+				ECC2F4741A98113F00051078 /* TabuSearch.swift */,
+			);
+			name = Algorithms;
+			sourceTree = "<group>";
+		};
+		ECC2F47B1A98115100051078 /* Fit Functions */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2F47C1A98115C00051078 /* FitFunctionManager.swift */,
+			);
+			name = "Fit Functions";
+			sourceTree = "<group>";
+		};
+		ECC2F47E1A9811C800051078 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2F47F1A9811D000051078 /* AlgorithmManager.swift */,
+				ECC2F4801A9811D000051078 /* DisplayInformation.swift */,
+				ECC2F4811A9811D000051078 /* Report.swift */,
+				ECC2F4821A9811D000051078 /* AverageReport.swift */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		ECC2F4891A9811F800051078 /* Storyboard / Launch */ = {
+			isa = PBXGroup;
+			children = (
+				ECC2F48A1A98133200051078 /* Main.storyboard */,
+				ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */,
+			);
+			name = "Storyboard / Launch";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECC2F45F1A9810EC00051078 /* Build configuration list for PBXNativeTarget "OptimizationAnalysis" */;
 			buildPhases = (
+				06430095D2BEB425F5B0D63C /* Check Pods Manifest.lock */,
 				ECC2F43C1A9810EC00051078 /* Sources */,
 				ECC2F43D1A9810EC00051078 /* Frameworks */,
 				ECC2F43E1A9810EC00051078 /* Resources */,
+				509027D6C37CC523C895D0B0 /* Embed Pods Frameworks */,
+				22CE90EE6F8EB61A28853299 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,7 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC2F44B1A9810EC00051078 /* Main.storyboard in Resources */,
+				ECC2F48B1A98133200051078 /* Main.storyboard in Resources */,
 				ECC2F4501A9810EC00051078 /* LaunchScreen.xib in Resources */,
 				ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */,
 			);
@@ -207,13 +328,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06430095D2BEB425F5B0D63C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		22CE90EE6F8EB61A28853299 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		509027D6C37CC523C895D0B0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ECC2F43C1A9810EC00051078 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC2F4481A9810EC00051078 /* ViewController.swift in Sources */,
+				ECC2F4781A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift in Sources */,
+				ECC2F46B1A98112300051078 /* FitFunctionPickerTableViewController.swift in Sources */,
 				ECC2F4461A9810EC00051078 /* AppDelegate.swift in Sources */,
+				ECC2F47D1A98115C00051078 /* FitFunctionManager.swift in Sources */,
+				ECC2F46A1A98112300051078 /* AlgorithmPickerTableViewController.swift in Sources */,
+				ECC2F4861A9811D000051078 /* AverageReport.swift in Sources */,
+				ECC2F4791A98113F00051078 /* SimulatedAnnealing.swift in Sources */,
+				ECC2F46C1A98112300051078 /* ParameterSelectionViewController.swift in Sources */,
+				ECC2F46D1A98112300051078 /* BarChartViewController.swift in Sources */,
+				ECC2F4881A9811DD00051078 /* Utils.swift in Sources */,
+				ECC2F4761A98113F00051078 /* SteepestAscentHillClimbing.swift in Sources */,
+				EC943EF91A9818F0007AA881 /* ECSlidingViewController.m in Sources */,
+				ECC2F4751A98113F00051078 /* HillClimbing.swift in Sources */,
+				ECC2F4831A9811D000051078 /* AlgorithmManager.swift in Sources */,
+				ECC2F4851A9811D000051078 /* Report.swift in Sources */,
+				ECC2F4771A98113F00051078 /* SteepestAscentHillClimbingWithReplacement.swift in Sources */,
+				ECC2F47A1A98113F00051078 /* TabuSearch.swift in Sources */,
+				ECC2F4841A9811D000051078 /* DisplayInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +421,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ECC2F4491A9810EC00051078 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECC2F44A1A9810EC00051078 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -336,21 +513,36 @@
 		};
 		ECC2F4601A9810EC00051078 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB15836E6FB68645D8E34EC5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
+				);
 				INFOPLIST_FILE = OptimizationAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OptimizationAnalysis/OptimizationAnalysis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		ECC2F4611A9810EC00051078 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F3B5E688688503C4F6F0B21 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
+				);
 				INFOPLIST_FILE = OptimizationAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OptimizationAnalysis/OptimizationAnalysis-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -407,6 +599,7 @@
 				ECC2F4611A9810EC00051078 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECC2F4621A9810EC00051078 /* Build configuration list for PBXNativeTarget "OptimizationAnalysisTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +608,7 @@
 				ECC2F4641A9810EC00051078 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

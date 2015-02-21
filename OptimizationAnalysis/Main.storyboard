@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GvP-Y8-OkL">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Algorithms-->
+        <scene sceneID="MY2-3N-2IE">
+            <objects>
+                <tableViewController id="3T5-XL-WgY" customClass="AlgorithmPickerTableViewController" customModule="OptimizationAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q28-1n-JRa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlgorithmCell" id="nmn-UX-ea2">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nmn-UX-ea2" id="sbX-j4-XFS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3T5-XL-WgY" id="Mrn-T7-0Un"/>
+                            <outlet property="delegate" destination="3T5-XL-WgY" id="9xy-iV-pAG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Algorithms" id="bzM-jy-pQY"/>
+                    <connections>
+                        <segue destination="fN1-xa-lGA" kind="show" identifier="ShowFitFunctions" id="TL7-w9-9fj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHA-1m-g9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="450"/>
+        </scene>
+        <!--Parameters-->
+        <scene sceneID="Z6n-WJ-wcE">
+            <objects>
+                <viewController storyboardIdentifier="ParameterSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T4S-Dc-l8y" customClass="ParameterSelectionViewController" customModule="OptimizationAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yHE-4y-Fn1"/>
+                        <viewControllerLayoutGuide type="bottom" id="gAz-Bk-TNj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ujb-d2-5ax">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P43-Pp-YUD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OV1-3G-nx4" customClass="SRBubbleProgressTrackerView" customModule="SRBubbleProgressTracker">
+                                        <rect key="frame" x="0.0" y="8" width="600" height="584"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="584" id="lzf-JN-2FI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OV1-3G-nx4" firstAttribute="top" secondItem="P43-Pp-YUD" secondAttribute="top" constant="8" id="2oH-59-oeX"/>
+                                    <constraint firstItem="OV1-3G-nx4" firstAttribute="leading" secondItem="P43-Pp-YUD" secondAttribute="leading" id="5yg-ve-xOu"/>
+                                    <constraint firstAttribute="trailing" secondItem="OV1-3G-nx4" secondAttribute="trailing" id="Dil-Ki-7Ld"/>
+                                    <constraint firstAttribute="bottom" secondItem="OV1-3G-nx4" secondAttribute="bottom" constant="8" id="EZx-9S-jJB"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P43-Pp-YUD" firstAttribute="leading" secondItem="Ujb-d2-5ax" secondAttribute="leading" id="1Ff-mf-mif"/>
+                            <constraint firstItem="P43-Pp-YUD" firstAttribute="top" secondItem="yHE-4y-Fn1" secondAttribute="bottom" constant="-64" id="9sC-xC-u0q"/>
+                            <constraint firstItem="OV1-3G-nx4" firstAttribute="width" secondItem="Ujb-d2-5ax" secondAttribute="width" id="FOv-4q-m51"/>
+                            <constraint firstAttribute="trailing" secondItem="P43-Pp-YUD" secondAttribute="trailing" id="Veh-tp-mhT"/>
+                            <constraint firstItem="gAz-Bk-TNj" firstAttribute="top" secondItem="P43-Pp-YUD" secondAttribute="bottom" constant="-44" id="ceh-mb-hV1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Parameters" id="RXE-G1-XQi">
+                        <barButtonItem key="rightBarButtonItem" title="Run" id="cY8-Lh-adP">
+                            <connections>
+                                <action selector="runTest:" destination="T4S-Dc-l8y" id="VfS-8a-1uc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bubbleTrackerHeightConstraint" destination="lzf-JN-2FI" id="0iq-mn-08V"/>
+                        <outlet property="bubbleTrackerVerticalSpaceConstraint" destination="2oH-59-oeX" id="K5n-lC-vQv"/>
+                        <outlet property="bubbleTrackerView" destination="OV1-3G-nx4" id="Rbn-K0-1e8"/>
+                        <outlet property="scrollView" destination="P43-Pp-YUD" id="iiS-a5-9Oe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0M-nW-erC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="1188"/>
+        </scene>
+        <!--Bar Chart View Controller-->
+        <scene sceneID="X83-RW-Pz5">
+            <objects>
+                <viewController id="Lh4-sC-YAg" customClass="BarChartViewController" customModule="OptimizationAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CbL-nI-X92"/>
+                        <viewControllerLayoutGuide type="bottom" id="nrF-oZ-hzF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m7w-lg-iRB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMQ-bO-hyZ" customClass="JBBarChartView">
+                                <rect key="frame" x="16" y="20" width="568" height="560"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="leading" secondItem="m7w-lg-iRB" secondAttribute="leading" constant="16" id="JLh-zG-4C7"/>
+                            <constraint firstAttribute="trailing" secondItem="cMQ-bO-hyZ" secondAttribute="trailing" constant="16" id="V7w-3Q-vmi"/>
+                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="top" secondItem="m7w-lg-iRB" secondAttribute="top" constant="20" id="lbj-HX-pTm"/>
+                            <constraint firstItem="nrF-oZ-hzF" firstAttribute="top" secondItem="cMQ-bO-hyZ" secondAttribute="bottom" constant="20" id="wsu-tZ-XA1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="barChart" destination="cMQ-bO-hyZ" id="DsH-s5-Eiv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05L-Vn-aYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="1188"/>
+        </scene>
+        <!--Fit Functions-->
+        <scene sceneID="ShF-sO-HZu">
+            <objects>
+                <tableViewController storyboardIdentifier="FitFunctionPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fN1-xa-lGA" customClass="FitFunctionPickerTableViewController" customModule="OptimizationAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="k86-UN-dHn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FitFunctionCell" id="Bae-ma-a8B">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bae-ma-a8B" id="IXv-6m-n1i">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fN1-xa-lGA" id="pQr-0k-E1X"/>
+                            <outlet property="delegate" destination="fN1-xa-lGA" id="DWr-YG-gxV"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Fit Functions" id="EGg-pm-Agd"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="T4S-Dc-l8y" kind="show" identifier="ShowParameters" id="YOx-cX-kcd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2y-Bz-gXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="1188"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XaG-OM-Y3W">
+            <objects>
+                <navigationController id="GvP-Y8-OkL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0gi-Hi-vIA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3T5-XL-WgY" kind="relationship" relationship="rootViewController" id="h9J-QJ-ITA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJL-rl-OZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="450"/>
+        </scene>
+    </scenes>
+</document>
