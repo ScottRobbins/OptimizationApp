@@ -34,6 +34,10 @@ class SteepestAscentHillClimbingWithRandomRestarts {
         var bestR = R
         var newR = [Double]()
         var report = Report()
+        report.bestSolution = R
+        if let temp = fitFunc(R) {
+            report.bestM = temp
+        } else { return nil }
         
         var totalTime = 0.0
         if let temp = Utils.avg(randomTimes) {
@@ -80,6 +84,8 @@ class SteepestAscentHillClimbingWithRandomRestarts {
                 report.bestM = newM
             }
             
+            report.iterations.append(Iteration(bestM: report.bestM))
+            
             // random restart
             R = getDataset(Nd, lowerBound, upperBound)
         }
@@ -120,6 +126,7 @@ class SteepestAscentHillClimbingWithRandomRestarts {
             bestMArray.append(report.bestM)
             sumComputationTime += report.computationTime
             computationTimeArray.append(report.computationTime)
+            averageReport.reports.append(report)
         }
         
         averageReport.averageBestM = sumM / Double(runNTimes)

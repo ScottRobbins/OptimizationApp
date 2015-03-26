@@ -34,6 +34,10 @@ class SteepestAscentHillClimbing {
         var newR = [Double]()
         var newW = [Double]()
         var report = Report()
+        report.bestSolution = R
+        if let temp = fitFunc(R) {
+            report.bestM = temp
+        } else { return nil }
         
         var computationStart = NSDate()
         for _ in 0..<Nt {
@@ -76,6 +80,8 @@ class SteepestAscentHillClimbing {
                 report.bestSolution = newR
                 report.bestM = newM
             }
+            
+            report.iterations.append(Iteration(bestM: report.bestM))
         }
         
         report.algorithmName = DisplayInformation.Algorithm.SteepestAscentHillClimbing.description
@@ -114,6 +120,7 @@ class SteepestAscentHillClimbing {
             bestMArray.append(report.bestM)
             sumComputationTime += report.computationTime
             computationTimeArray.append(report.computationTime)
+            averageReport.reports.append(report)
         }
         
         averageReport.averageBestM = sumM / Double(runNTimes)

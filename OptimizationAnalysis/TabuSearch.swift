@@ -38,6 +38,10 @@ class TabuSearch {
         var report = Report()
         var tabuList = [Double]()
         var newM = 0.0, wM = 0.0, M = 0.0, bestM = 0.0
+        report.bestSolution = R
+        if let temp = fitFunc(R) {
+            report.bestM = temp
+        } else { return nil }
         
         for r in R {
             tabuList.enQueue(r)
@@ -96,6 +100,8 @@ class TabuSearch {
                 report.bestSolution = bestR
                 report.bestM = bestM
             }
+            
+            report.iterations.append(Iteration(bestM: report.bestM))
         }
         
         report.algorithmName = DisplayInformation.Algorithm.TabuSearch.description
@@ -135,6 +141,7 @@ class TabuSearch {
             bestMArray.append(report.bestM)
             sumComputationTime += report.computationTime
             computationTimeArray.append(report.computationTime)
+            averageReport.reports.append(report)
         }
         
         averageReport.averageBestM = sumM / Double(runNTimes)

@@ -12,7 +12,8 @@ class Report {
     var algorithmName = String()
     var fitFunctionName = String?()
     var bestSolution = [Double]()
-    var bestM = Double()
+    var bestM = 0.0
     var computationTime = Double()
     var dimension = Int()
+    var iterations = [Iteration]()
 }

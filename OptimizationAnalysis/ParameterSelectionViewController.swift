@@ -18,6 +18,8 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     private var currentSVContentOffset = CGPointMake(0, 0)
     private var keyBoardIsUp = false
     private var textFields = [UITextField]()
+    let kShowSingleResultTableViewControllerSegue = "kShowSingleResultTableViewControllerSegue"
+    let kShowAverageResultTableViewControllerSegue = "kShowAverageResultTableViewControllerSegue"
     
     @IBOutlet weak var bubbleTrackerVerticalSpaceConstraint: NSLayoutConstraint!
     @IBOutlet weak var bubbleTrackerHeightConstraint: NSLayoutConstraint!
@@ -55,7 +57,7 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
             } else { return }
             
             // Will place bubbles in the center of the view
-            bubbleTrackerView.setupInitialBubbleProgressTrackerView(leftLabels.count, dotDiameter: 60.0, allign: .Vertical, leftOrTopViews: leftLabels, rightOrBottomViews: rightTextViews)
+            bubbleTrackerView.setupInitialBubbleProgressTrackerView(leftLabels.count, dotDiameter: 40.0, allign: .Vertical, leftOrTopViews: leftLabels, rightOrBottomViews: rightTextViews)
             bubbleTrackerViewIsSetup = true
 
         }
@@ -77,7 +79,7 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
         var leftViews = [UIView]()
         if let algorithm = algorithmManager?.algorithm {
             for parameter in DisplayInformation.getParametersForAlgorithm(algorithm) {
-                var label = UILabel(frame: CGRectMake(0, 0, (bubbleTrackerView.frame.size.width / 2.0) - ((60.0 / 2.0) + 20.0 + 8.0), 100)) // the 20 is me knowing how far from the bubble it's going to put the label (source). The 8 gives me space from the side, the 75 is the bubble diameter. 100 is an arbitrary height, probably should be calculated by the text you're putting in
+                var label = UILabel(frame: CGRectMake(0, 0, (bubbleTrackerView.frame.size.width / 2.0) - ((40.0 / 2.0) + 20.0 + 8.0), 100)) // the 20 is me knowing how far from the bubble it's going to put the label (source). The 8 gives me space from the side, the 75 is the bubble diameter. 100 is an arbitrary height, probably should be calculated by the text you're putting in, sorry broski
                 label.text = parameter.description
                 label.textColor = UIColor.lightGrayColor()
                 label.font = UIFont.systemFontOfSize(15)
@@ -153,7 +155,7 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
         
         if let userInfo = aNotification.userInfo {
             if let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
-                let kbSize = keyboardFrame.size
+                let kbSize = CGSizeMake(keyboardFrame.size.width, keyboardFrame.size.height + 40.0) // 40.0 for accessory view
                 let activeRect = self.view.convertRect(currentTextFieldEdited.frame, fromView: currentTextFieldEdited.superview)
                 var aRect = self.view.bounds
                 aRect.size.height -= kbSize.height
@@ -213,10 +215,28 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     }
     
     func singleReportFinished(report : Report?) {
-        
+        self.performSegueWithIdentifier(kShowSingleResultTableViewControllerSegue, sender: self)
     }
     
     func multipleReportFinished(report : AverageReport?) {
-        
+        self.performSegueWithIdentifier(kShowAverageResultTableViewControllerSegue, sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let viewController = segue.destinationViewController as? ResultTableViewController {
+            if let segueIdentifier = segue.identifier {
+                switch segueIdentifier {
+                case kShowSingleResultTableViewControllerSegue:
+                    viewController.singleReport = algorithmManager?.lastRunSingleReport
+                    viewController.reportType = .Single
+                case kShowAverageResultTableViewControllerSegue:
+                    viewController.averageReport = algorithmManager?.lastRunMultipleReport
+                    viewController.reportType = .Average
+                default:
+                    break
+                }
+            }
+        }
+
     }
 }

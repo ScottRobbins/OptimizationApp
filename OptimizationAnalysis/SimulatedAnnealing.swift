@@ -38,6 +38,10 @@ class SimulatedAnnealing {
         var report = Report()
         var t = tempModifier * (Int(arc4random_uniform(UInt32(46))) + 5) // 5-50
         var maxDuration = 200.0 // milliseconds
+        report.bestSolution = R
+        if let temp = fitFunc(R) {
+            report.bestM = temp
+        } else { return nil }
         
         var computationStart = NSDate()
         while computationStart.timeIntervalSinceNow * -1000.0 < maxDuration && t > 0 {
@@ -77,6 +81,8 @@ class SimulatedAnnealing {
                 report.bestSolution = R
                 report.bestM = newM
             }
+            
+            report.iterations.append(Iteration(bestM: report.bestM))
         }
         
         report.algorithmName = DisplayInformation.Algorithm.SimulatedAnnealing.description
@@ -115,6 +121,7 @@ class SimulatedAnnealing {
             bestMArray.append(report.bestM)
             sumComputationTime += report.computationTime
             computationTimeArray.append(report.computationTime)
+            averageReport.reports.append(report)
         }
         
         averageReport.averageBestM = sumM / Double(runNTimes)

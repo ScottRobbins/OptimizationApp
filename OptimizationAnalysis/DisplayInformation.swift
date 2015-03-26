@@ -9,7 +9,7 @@
 import Foundation
 
 class DisplayInformation {
-    // Fit Function Enum
+    // Algorithm Enum
     enum Algorithm : String, Printable {
         case HillClimbing = "Hill Climbing"
         case SteepestAscentHillClimbing = "Steepest Ascent Hill Climbing"
@@ -43,6 +43,7 @@ class DisplayInformation {
         }
     }
     
+    // Parameter Enum
     enum Parameter : String, Printable {
         case Dimension = "Dimension"
         case Iterations = "Number of Iterations"
@@ -59,6 +60,58 @@ class DisplayInformation {
         case RunNTimes = "Number of times to run"
         
         static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, NumberOfTimesToRun, NumberOfTweaks, NumberOfRandomTimes, UpperBoundForRandomTimes, TempModifier, MaxTabuListLength, RunNTimes]
+        
+        var description : String {
+            get {
+                return self.rawValue
+            }
+        }
+    }
+
+    // Report Enum
+    enum ReportDescriptions : String, Printable {
+        case AlgorithmName = "Algorithm"
+        case FitFunctionName = "Fit Function"
+        case BestM = "Best M"
+        case ComputationTime = "Computation Time"
+        case Dimension = "Dimension"
+        
+        static let allValues = [AlgorithmName, FitFunctionName, BestM, ComputationTime, Dimension]
+        
+        var description : String {
+            get {
+                return self.rawValue
+            }
+        }
+    }
+    
+    // Average Report Enum
+    enum AverageReportDescriptions : String, Printable {
+        case AlgorithmName = "Algorithm"
+        case FitFunctionName = "Fit Function"
+        case AverageBestM = "Avg Best M"
+        case AverageComputationTime = "Avg Computation Time"
+        case StandardDeviationBestM = "Std Dev Best M"
+        case StandardDeviationComputationTime = "Std Dev Computation Time"
+        case Dimension = "Dimension"
+        
+        
+        static let allValues = [AlgorithmName, FitFunctionName, AverageBestM, AverageComputationTime, StandardDeviationBestM, StandardDeviationComputationTime, Dimension]
+        
+        var description : String {
+            get {
+                return self.rawValue
+            }
+        }
+    }
+    
+    // Single Report Enum
+    enum ReportGraph : String, Printable {
+        case IterationVsBestM = "Iteration vs Best M"
+        case ReportVsBestM = "Report vs Best M"
+        case ReportVsComputationTime = "Report vs Computation Time"
+        
+        static let allValues = [IterationVsBestM, ReportVsBestM, ReportVsComputationTime]
         
         var description : String {
             get {
@@ -88,5 +141,14 @@ class DisplayInformation {
         parameters.append(.RunNTimes)
         
         return parameters
+    }
+    
+    class func getReportGraphsForReportType(reportType : ReportType) -> [ReportGraph] {
+        switch reportType {
+        case .Single:
+            return [ReportGraph.IterationVsBestM]
+        case .Average:
+            return [ReportGraph.IterationVsBestM, ReportGraph.ReportVsComputationTime]
+        }
     }
 }

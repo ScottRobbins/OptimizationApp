@@ -9,6 +9,7 @@
 import Foundation
 
 class AverageReport {
+    var reports = [Report]()
     var algorithmName = String()
     var fitFunctionName = String?()
     var averageBestM = Double()

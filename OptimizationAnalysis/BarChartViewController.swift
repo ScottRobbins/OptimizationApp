@@ -10,14 +10,19 @@ import UIKit
 import JBChartView
 
 class BarChartViewController: UIViewController {
-    var xValues : [String]? = nil
-    var yValues : [Double]? = nil
+    // MARK: Declarations
+    var singleReport : Report? = nil
+    var averageReport : AverageReport? = nil
+    var reportType = ReportType.Single // default
     
     @IBOutlet weak var barChart: JBBarChartView!
+    
+    // MARK: VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//
+//        barChart.delegate = self
+//        barChart.dataSource = self
     }
 
     

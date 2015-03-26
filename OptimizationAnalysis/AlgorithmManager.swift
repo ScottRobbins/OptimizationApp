@@ -14,9 +14,14 @@ protocol AlgorithmManagerDelegate: class {
     func multipleReportFinished(report : AverageReport?)
 }
 
+enum ReportType {
+    case Single
+    case Average
+}
+
 class AlgorithmManager {
     
-    // MARK: Initializations
+    // MARK: Declarations
     private var _algorithm : DisplayInformation.Algorithm? = nil
     
     var algorithm : DisplayInformation.Algorithm? {
@@ -32,7 +37,10 @@ class AlgorithmManager {
     var fitFunction : DisplayInformation.FitFunction? = nil
     var parameters : [DisplayInformation.Parameter]? = nil
     var delegate : AlgorithmManagerDelegate? = nil
+    var lastRunSingleReport : Report? = nil
+    var lastRunMultipleReport : AverageReport? = nil
     
+    // MARK: Initializers
     init() {
         
     }
@@ -49,6 +57,7 @@ class AlgorithmManager {
     }
     
     private func runAlgorithmWithParametersSingleTime(params : [Int]) {
+        lastRunSingleReport = nil
         if fitFunction != nil {
             var fitFunc = getFitFunctionForFitFunction(fitFunction!)
             
@@ -81,16 +90,18 @@ class AlgorithmManager {
                     }
                     
                     report?.fitFunctionName = fitFunction?.description
+                    lastRunSingleReport = report
                     // send message back to delegate report is done
                     delegate?.singleReportFinished(report)
                 }
             }
+        } else {
+            delegate?.singleReportFinished(nil)
         }
-        
-        delegate?.singleReportFinished(nil)
     }
     
     private func runAlgorithmWithParametersMultipleTimes(params : [Int]) {
+        lastRunMultipleReport = nil
         if fitFunction != nil {
             var fitFunc = getFitFunctionForFitFunction(fitFunction!)
             
@@ -123,13 +134,14 @@ class AlgorithmManager {
                     }
                     
                     report?.fitFunctionName = fitFunction?.description
+                    lastRunMultipleReport = report
                     // send message back to delegate report is done
                     delegate?.multipleReportFinished(report)
                 }
             }
+        } else {
+            delegate?.multipleReportFinished(nil)
         }
-        
-        delegate?.multipleReportFinished(nil)
     }
     
     // MARK: Algorithm Helper Methods
