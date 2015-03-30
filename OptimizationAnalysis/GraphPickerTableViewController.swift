@@ -32,7 +32,6 @@ class GraphPickerTableViewController: UITableViewController {
         return DisplayInformation.getReportGraphsForReportType(reportType).count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GraphCell", forIndexPath: indexPath) as UITableViewCell
 
@@ -45,8 +44,10 @@ class GraphPickerTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.graphWasSelected(DisplayInformation.getReportGraphsForReportType(reportType)[indexPath.row])
-        self.dismissViewControllerAnimated(true, completion:nil)
+        self.dismissViewControllerAnimated(true) {
+            self.delegate?.graphWasSelected(DisplayInformation.getReportGraphsForReportType(self.reportType)[indexPath.row])
+            return
+        }
     }
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {

@@ -148,7 +148,7 @@ class DisplayInformation {
         case .Single:
             return [ReportGraph.IterationVsBestM]
         case .Average:
-            return [ReportGraph.IterationVsBestM, ReportGraph.ReportVsComputationTime]
+            return [ReportGraph.ReportVsBestM, ReportGraph.ReportVsComputationTime]
         }
     }
 }

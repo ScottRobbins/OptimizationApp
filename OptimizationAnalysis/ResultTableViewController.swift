@@ -20,6 +20,9 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
     var reportType = ReportType.Single // default
     
     private let kShowGraphsViewController = "kShowGraphPickerViewController"
+    private let kShowLineChartViewController = "kShowLineChartViewController"
+    private let kShowBarChartViewController = "kShowBarChartViewController"
+    private var graphSelected : DisplayInformation.ReportGraph?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,20 +123,98 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
     }
     
     func graphWasSelected(reportGraph : DisplayInformation.ReportGraph) {
-        println("\(reportGraph.description)")
+        graphSelected = reportGraph
+        
+        switch reportGraph {
+        case .IterationVsBestM:
+            self.performSegueWithIdentifier(kShowLineChartViewController, sender: self)
+        case .ReportVsBestM:
+            self.performSegueWithIdentifier(kShowBarChartViewController, sender: self)
+        case .ReportVsComputationTime:
+            self.performSegueWithIdentifier(kShowBarChartViewController, sender: self)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let viewController = segue.destinationViewController as? GraphPickerTableViewController {
+        if let navigationController = segue.destinationViewController as? GraphPickerNavigationController {
             if let segueIdentifier = segue.identifier {
                 switch segueIdentifier {
                 case kShowGraphsViewController:
-                    viewController.delegate = self
-                    viewController.reportType = reportType
+                    navigationController.rootViewController?.delegate = self
+                    navigationController.rootViewController?.reportType = reportType
                 default:
                     break
                 }
             }
+        } else if let viewController = segue.destinationViewController as? LineChartViewController {
+            if let segueIdentifier = segue.identifier {
+                switch segueIdentifier {
+                case kShowLineChartViewController:
+                    viewController.title = "Report"
+                    viewController.graphTitle = graphSelected?.rawValue
+                    switch reportType {
+                    case .Single:
+                        if let _graphSelected = graphSelected {
+                            switch _graphSelected {
+                            case .IterationVsBestM:
+                                if singleReport != nil {
+                                    viewController.minimumY = singleReport!.minimumBestM
+                                    viewController.maximumY = singleReport!.maximumBestM
+                                    viewController.addLine(singleReport!.allBestMs)
+                                }
+                            default:
+                                break
+                            }
+                        }
+                    default:
+                        break
+                    }
+                default:
+                    break
+                }
+            }
+        } else if let viewController = segue.destinationViewController as? BarChartViewController {
+            if let segueIdentifier = segue.identifier {
+                switch segueIdentifier {
+                case kShowBarChartViewController:
+                    viewController.title = "Report"
+                    viewController.graphTitle = graphSelected?.rawValue
+                    switch reportType {
+                    case .Average:
+                        if let _graphSelected = graphSelected {
+                            switch _graphSelected {
+                            case .ReportVsBestM:
+                                if averageReport != nil {
+                                    for (i, report) in enumerate(averageReport!.reports) {
+                                        var bar = Bar(name: "\(report.algorithmName) \(i)", value: report.bestM)
+                                        viewController.addBar(bar)
+                                    }
+                                    
+                                    viewController.minimumY = averageReport!.minimumReportsBestM
+                                    viewController.maximumY = averageReport!.maximumReportsBestM
+                                }
+                            case .ReportVsComputationTime:
+                                if averageReport != nil {
+                                    for (i, report) in enumerate(averageReport!.reports) {
+                                        var bar = Bar(name: "\(report.algorithmName) \(i)", value: report.computationTime)
+                                        viewController.addBar(bar)
+                                    }
+                                    
+                                    viewController.minimumY = averageReport!.minimumReportsComputationTime
+                                    viewController.maximumY = averageReport!.maximumReportsComputationTime
+                                }
+                            default:
+                                break
+                            }
+                        }
+                    default:
+                        break
+                    }
+                default:
+                    break
+                }
+            }
+
         }
     }
 }

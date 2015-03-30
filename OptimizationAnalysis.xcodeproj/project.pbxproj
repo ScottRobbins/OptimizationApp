@@ -10,6 +10,8 @@
 		5AE729724C2628DE5E9A5B6C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAA8E25BADBC04F690693EF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EC6CD6671AC3B34E003AD16C /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */; };
 		EC6CD6691AC3E564003AD16C /* GraphPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */; };
+		EC6CD66D1AC68BD6003AD16C /* GraphPickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */; };
+		EC6CD66F1AC92765003AD16C /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD66E1AC92765003AD16C /* Bar.swift */; };
 		ECB8E9C21ABA705800A24A7D /* Iteration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9C11ABA705800A24A7D /* Iteration.swift */; };
 		ECB8E9C61ABA7F8700A24A7D /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9C51ABA7F8700A24A7D /* LineChartViewController.swift */; };
 		ECB8E9CE1ABA9E5A00A24A7D /* ChartViewToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9CD1ABA9E5A00A24A7D /* ChartViewToolTipView.swift */; };
@@ -54,6 +56,8 @@
 		BDAA8E25BADBC04F690693EF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerTableViewController.swift; sourceTree = "<group>"; };
+		EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerNavigationController.swift; sourceTree = "<group>"; };
+		EC6CD66E1AC92765003AD16C /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		ECB8E9C11ABA705800A24A7D /* Iteration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Iteration.swift; sourceTree = "<group>"; };
 		ECB8E9C51ABA7F8700A24A7D /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
 		ECB8E9CD1ABA9E5A00A24A7D /* ChartViewToolTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewToolTipView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				ECB8E9CF1ABAA16D00A24A7D /* BaseChartViewController.swift */,
 				EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */,
 				EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */,
+				EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				ECC2F4811A9811D000051078 /* Report.swift */,
 				ECC2F4821A9811D000051078 /* AverageReport.swift */,
 				ECB8E9C11ABA705800A24A7D /* Iteration.swift */,
+				EC6CD66E1AC92765003AD16C /* Bar.swift */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB8E9CE1ABA9E5A00A24A7D /* ChartViewToolTipView.swift in Sources */,
+				EC6CD66D1AC68BD6003AD16C /* GraphPickerNavigationController.swift in Sources */,
 				ECC2F4781A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift in Sources */,
 				ECB8E9D01ABAA16D00A24A7D /* BaseChartViewController.swift in Sources */,
 				EC6CD6671AC3B34E003AD16C /* ResultTableViewController.swift in Sources */,
@@ -415,6 +422,7 @@
 				ECC2F4881A9811DD00051078 /* Utils.swift in Sources */,
 				ECC2F4761A98113F00051078 /* SteepestAscentHillClimbing.swift in Sources */,
 				ECC2F4751A98113F00051078 /* HillClimbing.swift in Sources */,
+				EC6CD66F1AC92765003AD16C /* Bar.swift in Sources */,
 				ECB8E9D21ABAA35700A24A7D /* ChartViewToolTipTipView.swift in Sources */,
 				ECC2F4831A9811D000051078 /* AlgorithmManager.swift in Sources */,
 				ECC2F4851A9811D000051078 /* Report.swift in Sources */,

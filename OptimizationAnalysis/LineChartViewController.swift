@@ -11,10 +11,14 @@ import JBChartView
 
 class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
 
-    // MARK: Declarations
-    var singleReport : Report? = nil
-    var averageReport : AverageReport? = nil
-    var reportType = ReportType.Single // default
+    // MARK: Public Declarations
+    var minimumY : Double?
+    var maximumY : Double?
+    var graphTitle : String?
+    
+    // MARK: Private Declarations
+    private var lines = Dictionary<String, [Double]>()
+    private var linesNextId = 0
     
     @IBOutlet weak var lineChart: JBLineChartView!
     
@@ -22,35 +26,27 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.title = "\(singleReport!.algorithmName)"
         lineChart.delegate = self
         lineChart.dataSource = self
         chartView = lineChart
-        
-        // TODO: Assuming single report run, getting iterations will crash normally
-        // find minimum
-        var minimum = singleReport!.iterations[0].bestM
-        var maximum = singleReport!.iterations[0].bestM
-        for iteration in singleReport!.iterations {
-            if minimum > iteration.bestM {
-                minimum = iteration.bestM
-            }
-            
-            if maximum < iteration.bestM {
-                maximum = iteration.bestM
-            }
+
+        if let _minimumY = minimumY {
+            lineChart.minimumValue = CGFloat(minimumY!)
+        }
+        if let _maximumY = maximumY {
+            lineChart.maximumValue = CGFloat(maximumY!)
         }
         
-        lineChart.minimumValue = CGFloat(minimum)
-        lineChart.maximumValue = CGFloat(maximum)
         lineChart.setState(.Collapsed, animated: false)
         
-        var headerView = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 50.0))
-        headerView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        headerView.textAlignment = .Center
-        headerView.textColor = UIColor.whiteColor()
-        headerView.text = "Iteration vs. BestM"
-        self.lineChart.headerView = headerView
+        if let _graphTitle = graphTitle {
+            var headerView = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 50.0))
+            headerView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            headerView.textAlignment = .Center
+            headerView.textColor = UIColor.whiteColor()
+            headerView.text = _graphTitle
+            lineChart.headerView = headerView
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,16 +58,15 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
     
     // MARK: JBLineChartViewDataSource
     func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
-        return 1
+        return UInt(lines.keys.array.count)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        return UInt(singleReport!.iterations.count)
+        return UInt(lines.values.array[Int(lineIndex)].count)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-        var iteration = singleReport!.iterations[Int(horizontalIndex)]
-        return CGFloat(iteration.bestM)
+        return CGFloat(lines.values.array[Int(lineIndex)][Int(horizontalIndex)])
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
@@ -92,24 +87,21 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
     
     // MARK: Helper Functions
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
-        if lineIndex == 0 {
-            let data = singleReport!.iterations[Int(horizontalIndex)].bestM
-            setToolTipVisible(true, animated: false, atTouchPoint: touchPoint)
-            toolTipView.setText("\(horizontalIndex + 1) Best M: \(singleReport!.iterations[Int(horizontalIndex)].bestM)")
-        }
+        setToolTipVisible(true, animated: false, atTouchPoint: touchPoint)
+        toolTipView.setText("X: \(horizontalIndex + 1) | Y: \(lines.values.array[Int(lineIndex)][Int(horizontalIndex)])")
     }
     
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
-        self.setToolTipVisible(false, animated: true)
+        setToolTipVisible(false, animated: true)
     }
     
-    func hideChart() {
-        lineChart.setState(.Collapsed, animated: true)
+    func addLine(lineValues : [Double]) -> String {
+        lines["\(linesNextId + 1)"] = lineValues
+        linesNextId++
+        return "\(linesNextId)"
     }
     
-    func showChart() {
-        lineChart.setState(.Expanded, animated: true)
+    func removeLine(id : String) {
+        lines.removeValueForKey(id)
     }
-    
-    
 }

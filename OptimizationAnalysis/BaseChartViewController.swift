@@ -29,9 +29,7 @@ class BaseChartViewController: UIViewController {
         var _chartView = chartView
         
         toolTipView.alpha = 0.0
-        //toolTipTipView.alpha = 0.0
         self.view.addSubview(toolTipView)
-       // self.view.addSubview(toolTipTipView)
         
         if toolTipVisible {
             adjustToolTipPosition(touchPoint)
@@ -91,6 +89,14 @@ class BaseChartViewController: UIViewController {
     
     func setToolTipVisible(toolTipVisible : Bool) {
         setToolTipVisible(toolTipVisible, animated: false)
+    }
+    
+    func hideChart() {
+        chartView.setState(.Collapsed, animated: true)
+    }
+    
+    func showChart() {
+        chartView.setState(.Expanded, animated: true)
     }
     
     

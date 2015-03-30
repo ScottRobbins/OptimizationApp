@@ -16,4 +16,13 @@ class Report {
     var computationTime = Double()
     var dimension = Int()
     var iterations = [Iteration]()
+    var allBestMs : [Double] {
+        return iterations.map({$0.bestM})
+    }
+    var minimumBestM : Double {
+        return allBestMs.reduce(iterations[0].bestM, combine: min)
+    }
+    var maximumBestM : Double {
+        return allBestMs.reduce(iterations[0].bestM, combine: max)
+    }
 }
