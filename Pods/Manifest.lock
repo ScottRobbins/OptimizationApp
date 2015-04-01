@@ -1,0 +1,22 @@
+PODS:
+  - JBChartView (2.8.10)
+  - SRBubbleProgressTracker (1.0.5)
+
+DEPENDENCIES:
+  - JBChartView
+  - SRBubbleProgressTracker (from `https://github.com/ssrobbi/SRBubbleProgressTracker.git`)
+
+EXTERNAL SOURCES:
+  SRBubbleProgressTracker:
+    :git: https://github.com/ssrobbi/SRBubbleProgressTracker.git
+
+CHECKOUT OPTIONS:
+  SRBubbleProgressTracker:
+    :commit: a49fb2028c58eff0e5ebeb3a5870cd8b2cbddb79
+    :git: https://github.com/ssrobbi/SRBubbleProgressTracker.git
+
+SPEC CHECKSUMS:
+  JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
+  SRBubbleProgressTracker: f59090c2cc26c2c531416c87fd34964e69ff876a
+
+COCOAPODS: 0.36.0.beta.2
