@@ -15,12 +15,18 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
     var minimumY : Double?
     var maximumY : Double?
     var graphTitle : String?
+    var YAxisLabelText : DisplayInformation.AxisLabel?
+    var XAxisLabelText : DisplayInformation.AxisLabel?
     
     // MARK: Private Declarations
     private var lines = Dictionary<String, [Double]>()
     private var linesNextId = 0
+    private var viewHasBeenLayedOut = false
     
     @IBOutlet weak var lineChart: JBLineChartView!
+    @IBOutlet weak var yAxisLabel: UILabel!
+    @IBOutlet weak var xAxisLabel: UILabel!
+    @IBOutlet weak var spacerView: UIView!
     
     // MARK: VC Lifecycle
     override func viewDidLoad() {
@@ -47,6 +53,34 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
             headerView.text = _graphTitle
             lineChart.headerView = headerView
         }
+        
+        if let _xAxisLabelText = XAxisLabelText {
+            var footerView = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 21.0))
+            footerView.textAlignment = .Center
+            footerView.textColor = UIColor.lightGrayColor()
+            footerView.text = _xAxisLabelText.rawValue
+            lineChart.footerView = footerView
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if viewHasBeenLayedOut == false {
+            viewHasBeenLayedOut = true
+            
+            if let _yAxisLabelText = YAxisLabelText {
+                var yAxisLabel = UILabel(frame: CGRectMake(lineChart.frame.origin.x - 8.0 - 21.0, lineChart.frame.origin.y, lineChart.frame.size.height, 21.0))
+                yAxisLabel.textAlignment = .Center
+                yAxisLabel.text = _yAxisLabelText.rawValue
+                yAxisLabel.textColor = UIColor.lightGrayColor()
+                yAxisLabel.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+                yAxisLabel.frame.origin = CGPointMake(lineChart.frame.origin.x - 8.0 - 21.0, lineChart.frame.origin.y)
+                self.view.addSubview(yAxisLabel)
+            } else {
+                spacerView.removeFromSuperview()
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -70,7 +104,7 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.whiteColor()
+        return Int(lineIndex) < colorForGraph.count ? colorForGraph[Int(lineIndex)] : colorForGraph[Int(lineIndex) % colorForGraph.count]
     }
     
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -87,12 +121,20 @@ class LineChartViewController: BaseChartViewController, JBLineChartViewDelegate,
     
     // MARK: Helper Functions
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
-        setToolTipVisible(true, animated: false, atTouchPoint: touchPoint)
-        toolTipView.setText("X: \(horizontalIndex + 1) | Y: \(lines.values.array[Int(lineIndex)][Int(horizontalIndex)])")
+        if let headerView = lineChart.headerView as? UILabel {
+            if let _xAxisLabelText = XAxisLabelText {
+                if let _yAxisLabelText = YAxisLabelText {
+                    let lineValue = lines.values.array[Int(lineIndex)][Int(horizontalIndex)].format(".4")
+                    headerView.text = "\(_xAxisLabelText.rawValue) \(horizontalIndex + 1): \(lineValue)"
+                }
+            }
+        }
     }
     
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
-        setToolTipVisible(false, animated: true)
+        if let headerView = lineChart.headerView as? UILabel {
+            headerView.text = graphTitle
+        }
     }
     
     func addLine(lineValues : [Double]) -> String {

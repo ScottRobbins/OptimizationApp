@@ -18,6 +18,7 @@ class BaseChartViewController: UIViewController {
     var toolTipVisible = false
     var chartView = JBChartView()
     
+    internal let colorForGraph = [UIColor.orangeColor(), UIColor.lightGrayColor(), UIColor.whiteColor(), UIColor.blueColor()]
     private var toolTipTipView = ChartViewToolTipTipView()
 
     required init(coder aDecoder: NSCoder) {

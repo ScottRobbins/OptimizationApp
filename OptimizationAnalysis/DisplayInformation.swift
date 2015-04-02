@@ -120,6 +120,23 @@ class DisplayInformation {
         }
     }
     
+    // Axis Labels Enum
+    enum AxisLabel : String, Printable {
+        case Iteration = "Iteration"
+        case BestM = "Best M"
+        case Report = "Report"
+        case ComputationTime = "Computation Time"
+        
+        static let allValues = [Iteration, BestM, Report, ComputationTime]
+        
+        var description : String {
+            get {
+                return self.rawValue
+            }
+        }
+    }
+
+    
     class func getParametersForAlgorithm(algorithm : Algorithm) -> Array<Parameter> {
         var parameters : Array<Parameter> = [.Dimension, .Iterations, .LowerBound, .UpperBound, .LowerChange, .UpperChange]
         

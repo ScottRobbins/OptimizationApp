@@ -186,19 +186,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMQ-bO-hyZ" customClass="JBLineChartView">
-                                <rect key="frame" x="10" y="72" width="580" height="476"/>
+                                <rect key="frame" x="39" y="72" width="551" height="476"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGD-p3-AY4">
+                                <rect key="frame" x="8" y="72" width="21" height="476"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="Eh8-zC-u8x"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="leading" secondItem="m7w-lg-iRB" secondAttribute="leading" constant="10" id="JLh-zG-4C7"/>
-                            <constraint firstAttribute="trailing" secondItem="cMQ-bO-hyZ" secondAttribute="trailing" constant="10" id="V7w-3Q-vmi"/>
-                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="top" secondItem="m7w-lg-iRB" secondAttribute="top" constant="72" id="lbj-HX-pTm"/>
-                            <constraint firstItem="nrF-oZ-hzF" firstAttribute="top" secondItem="cMQ-bO-hyZ" secondAttribute="bottom" constant="8" id="wsu-tZ-XA1"/>
+                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="leading" secondItem="BGD-p3-AY4" secondAttribute="trailing" constant="10" id="8Ee-PR-JPY"/>
+                            <constraint firstAttribute="trailing" secondItem="cMQ-bO-hyZ" secondAttribute="trailing" constant="10" id="Ept-Eb-ajr"/>
+                            <constraint firstItem="nrF-oZ-hzF" firstAttribute="top" secondItem="BGD-p3-AY4" secondAttribute="bottom" constant="8" id="Kvy-dH-I0e"/>
+                            <constraint firstItem="nrF-oZ-hzF" firstAttribute="top" secondItem="cMQ-bO-hyZ" secondAttribute="bottom" constant="8" symbolic="YES" id="OcW-US-xB7"/>
+                            <constraint firstItem="BGD-p3-AY4" firstAttribute="top" secondItem="CbL-nI-X92" secondAttribute="bottom" constant="8" id="P6z-Kt-s6i"/>
+                            <constraint firstItem="BGD-p3-AY4" firstAttribute="leading" secondItem="m7w-lg-iRB" secondAttribute="leading" constant="8" id="TOC-yH-rsE"/>
+                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="top" secondItem="CbL-nI-X92" secondAttribute="bottom" constant="8" id="aRz-bQ-wLo"/>
+                            <constraint firstItem="cMQ-bO-hyZ" firstAttribute="leading" secondItem="m7w-lg-iRB" secondAttribute="leading" priority="750" constant="10" id="p0c-LK-UfH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lineChart" destination="cMQ-bO-hyZ" id="Vsf-aC-LjC"/>
+                        <outlet property="spacerView" destination="BGD-p3-AY4" id="XaY-jT-gga"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05L-Vn-aYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,19 +315,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0G-Rx-6F0" customClass="JBBarChartView">
-                                <rect key="frame" x="10" y="72" width="580" height="476"/>
+                                <rect key="frame" x="39" y="72" width="551" height="476"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9j-yv-alx">
+                                <rect key="frame" x="8" y="72" width="21" height="476"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="2kI-0M-Ba8"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="21" id="9YE-IQ-8Ag"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="N0G-Rx-6F0" firstAttribute="leading" secondItem="sca-Uq-CAi" secondAttribute="leading" constant="10" id="7bi-19-KME"/>
+                            <constraint firstItem="N0G-Rx-6F0" firstAttribute="leading" secondItem="sca-Uq-CAi" secondAttribute="leading" priority="750" constant="10" id="7bi-19-KME"/>
+                            <constraint firstItem="afe-G6-nAk" firstAttribute="top" secondItem="D9j-yv-alx" secondAttribute="bottom" constant="8" id="J1m-Fs-W4E"/>
+                            <constraint firstItem="N0G-Rx-6F0" firstAttribute="leading" secondItem="D9j-yv-alx" secondAttribute="trailing" constant="10" id="WEv-W8-pOz"/>
                             <constraint firstItem="afe-G6-nAk" firstAttribute="top" secondItem="N0G-Rx-6F0" secondAttribute="bottom" constant="8" id="YrW-sk-Oem"/>
+                            <constraint firstItem="D9j-yv-alx" firstAttribute="leading" secondItem="sca-Uq-CAi" secondAttribute="leading" constant="8" id="bVL-TA-1ua"/>
                             <constraint firstAttribute="trailing" secondItem="N0G-Rx-6F0" secondAttribute="trailing" constant="10" id="bdL-tk-9n4"/>
+                            <constraint firstItem="D9j-yv-alx" firstAttribute="top" secondItem="blC-tm-QUd" secondAttribute="bottom" constant="8" id="hgM-2y-hQs"/>
                             <constraint firstItem="N0G-Rx-6F0" firstAttribute="top" secondItem="blC-tm-QUd" secondAttribute="bottom" constant="8" id="scj-uM-DsN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="barChart" destination="N0G-Rx-6F0" id="Qn3-pQ-4m3"/>
+                        <outlet property="spacerView" destination="D9j-yv-alx" id="bc2-CS-53h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzw-WE-sLN" userLabel="First Responder" sceneMemberID="firstResponder"/>

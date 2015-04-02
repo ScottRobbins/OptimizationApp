@@ -15,10 +15,14 @@ class BarChartViewController: BaseChartViewController, JBBarChartViewDelegate, J
     var maximumY : Double?
     var reportType = ReportType.Single // default
     var graphTitle : String?
+    var YAxisLabelText : DisplayInformation.AxisLabel?
+    var XAxisLabelText : DisplayInformation.AxisLabel?
     
     @IBOutlet weak var barChart: JBBarChartView!
+    @IBOutlet weak var spacerView: UIView!
     
     private var bars = [Bar]()
+    private var viewHasBeenLayedOut = false
     
     // MARK: VC Lifecycle
     override func viewDidLoad() {
@@ -45,6 +49,14 @@ class BarChartViewController: BaseChartViewController, JBBarChartViewDelegate, J
             headerView.text = _graphTitle
             barChart.headerView = headerView
         }
+        
+        if let _xAxisLabelText = XAxisLabelText {
+            var footerView = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 21.0))
+            footerView.textAlignment = .Center
+            footerView.textColor = UIColor.lightGrayColor()
+            footerView.text = _xAxisLabelText.rawValue
+            barChart.footerView = footerView
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,6 +64,24 @@ class BarChartViewController: BaseChartViewController, JBBarChartViewDelegate, J
         
         barChart.reloadData()
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if viewHasBeenLayedOut == false {
+            viewHasBeenLayedOut = true
+            
+            if let _yAxisLabelText = YAxisLabelText {
+                var yAxisLabel = UILabel(frame: CGRectMake(barChart.frame.origin.x - 8.0 - 21.0, barChart.frame.origin.y, barChart.frame.size.height, 21.0))
+                yAxisLabel.textAlignment = .Center
+                yAxisLabel.text = _yAxisLabelText.rawValue
+                yAxisLabel.textColor = UIColor.lightGrayColor()
+                yAxisLabel.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+                yAxisLabel.frame.origin = CGPointMake(barChart.frame.origin.x - 8.0 - 21.0, barChart.frame.origin.y)
+                self.view.addSubview(yAxisLabel)
+            } else {
+                spacerView.removeFromSuperview()
+            }
+        }
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -69,17 +99,21 @@ class BarChartViewController: BaseChartViewController, JBBarChartViewDelegate, J
     }
     
     func barChartView(barChartView: JBBarChartView!, colorForBarViewAtIndex index: UInt) -> UIColor! {
-        return UIColor.lightGrayColor()
+        return colorForGraph[0]
     }
     
     // MARK: JBBarChartViewDelegate
     func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt, touchPoint: CGPoint) {
-        setToolTipVisible(true, animated: false, atTouchPoint: touchPoint)
-        toolTipView.setText("\(bars[Int(index)].name): \(bars[Int(index)].value)")
+        if let headerLabel = barChart.headerView as? UILabel {
+            let barValue = bars[Int(index)].value.format(".4")
+            headerLabel.text = "\(bars[Int(index)].name): \(barValue)"
+        }
     }
     
     func didDeselectBarChartView(barChartView: JBBarChartView!) {
-        setToolTipVisible(false, animated: true)
+        if let headerLabel = barChart.headerView as? UILabel {
+            headerLabel.text = graphTitle
+        }
     }
     
     func addBar(bar : Bar) -> String {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kChartViewToolTipViewDefaultWidth : CGFloat = UIScreen.mainScreen().bounds.size.width;
+let kChartViewToolTipViewDefaultWidth : CGFloat = UIScreen.mainScreen().bounds.size.width - 20.0;
 let kChartViewToolTipViewDefaultHeight : CGFloat = 50.0;
 
 class ChartViewToolTipTipView: UIView {

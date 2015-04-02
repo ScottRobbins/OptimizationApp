@@ -49,7 +49,6 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
             return DisplayInformation.AverageReportDescriptions.allValues.count
         }
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ReportCell", forIndexPath: indexPath) as UITableViewCell
@@ -87,9 +86,9 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
             case DisplayInformation.ReportDescriptions.FitFunctionName.rawValue:
                 return singleReport?.fitFunctionName
             case DisplayInformation.ReportDescriptions.BestM.rawValue:
-                return (singleReport? != nil) ? "\(singleReport!.bestM)" : nil
+                return (singleReport? != nil) ? singleReport!.bestM.format(".4") : nil
             case DisplayInformation.ReportDescriptions.ComputationTime.rawValue:
-                return (singleReport? != nil) ? "\(singleReport!.computationTime)" : nil
+                return (singleReport? != nil) ? singleReport!.computationTime.format(".4") : nil
             case DisplayInformation.ReportDescriptions.Dimension.rawValue:
                 return (singleReport? != nil) ? "\(singleReport!.dimension)" : nil
             default:
@@ -102,13 +101,13 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
             case DisplayInformation.AverageReportDescriptions.FitFunctionName.rawValue:
                 return averageReport?.fitFunctionName
             case DisplayInformation.AverageReportDescriptions.AverageBestM.rawValue:
-                return (averageReport? != nil) ? "\(averageReport!.averageBestM)" : nil
+                return (averageReport? != nil) ? averageReport!.averageBestM.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.AverageComputationTime.rawValue:
-                return (averageReport? != nil) ? "\(averageReport!.averageComputationTime)" : nil
+                return (averageReport? != nil) ? averageReport!.averageComputationTime.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.StandardDeviationBestM.rawValue:
-                return (averageReport? != nil) ? "\(averageReport!.stdDevBestM)" : nil
+                return (averageReport? != nil) ? averageReport!.stdDevBestM.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.StandardDeviationComputationTime.rawValue:
-                return (averageReport? != nil) ? "\(averageReport!.stdDevComputationTime)" : nil
+                return (averageReport? != nil) ? averageReport!.stdDevComputationTime.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.Dimension.rawValue:
                 return (averageReport? != nil) ? "\(averageReport!.dimension)" : nil
             default:
@@ -160,6 +159,8 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                                 if singleReport != nil {
                                     viewController.minimumY = singleReport!.minimumBestM
                                     viewController.maximumY = singleReport!.maximumBestM
+                                    viewController.YAxisLabelText = .BestM
+                                    viewController.XAxisLabelText = .Iteration
                                     viewController.addLine(singleReport!.allBestMs)
                                 }
                             default:
@@ -190,8 +191,10 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                                         viewController.addBar(bar)
                                     }
                                     
-                                    viewController.minimumY = averageReport!.minimumReportsBestM
+                                    viewController.minimumY = averageReport!.minimumReportsBestM * 0.99
                                     viewController.maximumY = averageReport!.maximumReportsBestM
+                                    viewController.XAxisLabelText = .Report
+                                    viewController.YAxisLabelText = .BestM
                                 }
                             case .ReportVsComputationTime:
                                 if averageReport != nil {
@@ -200,8 +203,10 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                                         viewController.addBar(bar)
                                     }
                                     
-                                    viewController.minimumY = averageReport!.minimumReportsComputationTime
+                                    viewController.minimumY = averageReport!.minimumReportsComputationTime * 0.99
                                     viewController.maximumY = averageReport!.maximumReportsComputationTime
+                                    viewController.XAxisLabelText = .Report
+                                    viewController.YAxisLabelText = .ComputationTime
                                 }
                             default:
                                 break

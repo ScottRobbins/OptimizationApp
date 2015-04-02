@@ -22,6 +22,7 @@ public class Utils {
         
         return sum / T(numberArray.count)
     }
+    
 }
 
 // Used to make sure generic conforms to numeric property
@@ -36,8 +37,13 @@ protocol NumericType {
 
 // All of these ALREADY implement the numerictype functions of +, -, etc
 // ...but at some point the compiler doesn't know it, so we explicitly state it
-extension Double : NumericType {}
+extension Double : NumericType {
+    func format(f: String) -> String {
+        return NSString(format: "%\(f)f", self)
+    }
+}
 extension Float  : NumericType {}
+extension CGFloat : NumericType {}
 extension Int    : NumericType {}
 extension Int8   : NumericType {}
 extension Int16  : NumericType {}
