@@ -13,9 +13,13 @@ let kChartViewToolTipViewDefaultHeight : CGFloat = 50.0;
 
 class ChartViewToolTipTipView: UIView {
 
-    override init() {
-        super.init(frame: CGRectMake(0, 0, kChartViewToolTipViewDefaultWidth, kChartViewToolTipViewDefaultHeight))
+    convenience init() {
+        self.init(frame: CGRectMake(0, 0, kChartViewToolTipViewDefaultWidth, kChartViewToolTipViewDefaultHeight))
         self.backgroundColor = UIColor.clearColor()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init(coder aDecoder: NSCoder) {

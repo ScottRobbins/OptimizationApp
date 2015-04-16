@@ -15,7 +15,7 @@ class BaseChartViewController: UIViewController {
     
     // MARK: Declarations
     var toolTipView = ChartViewToolTipView()
-    var toolTipVisible = false
+    var toolTipIsVisible = false
     var chartView = JBChartView()
     
     internal let colorForGraph = [UIColor.orangeColor(), UIColor.lightGrayColor(), UIColor.whiteColor(), UIColor.blueColor()]
@@ -26,7 +26,7 @@ class BaseChartViewController: UIViewController {
     }
     
     func setToolTipVisible(toolTipVisible : Bool, animated : Bool, atTouchPoint touchPoint : CGPoint) {
-        self.toolTipVisible = toolTipVisible
+        self.toolTipIsVisible = toolTipVisible
         var _chartView = chartView
         
         toolTipView.alpha = 0.0
@@ -80,8 +80,8 @@ class BaseChartViewController: UIViewController {
     }
     
     private func adjustToolTipVisibility() {
-        toolTipView.alpha = toolTipVisible ? 0.9 : 0.0;
-        toolTipTipView.alpha = toolTipVisible ? 1.0 : 0.0;
+        toolTipView.alpha = toolTipIsVisible ? 0.9 : 0.0;
+        toolTipTipView.alpha = toolTipIsVisible ? 1.0 : 0.0;
     }
     
     func setToolTipVisible(toolTipVisible : Bool, animated : Bool) {

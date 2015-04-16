@@ -71,13 +71,13 @@ class TabuSearch {
                 } else { return nil }
                 
                 // You are here
-                if !NSSet(array: newW).isEqualToSet(NSSet(array: tabuList)) && (wM > newM || NSSet(array: newR).isEqualToSet(NSSet(array: tabuList))) {
+                if Set(newW) == Set(tabuList) && (wM > newM || Set(newR) == Set(tabuList)){
                     newR = newW
                     newM = wM
                 }
             }
             
-            if !NSSet(array: newR).isEqualToSet(NSSet(array: tabuList)) && newM > M {
+            if Set(newR) == Set(tabuList) && newM > M {
                 R = newR
                 M = newM
                 

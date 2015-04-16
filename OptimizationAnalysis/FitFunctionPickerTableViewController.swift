@@ -31,7 +31,7 @@ class FitFunctionPickerTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FitFunctionCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FitFunctionCell", forIndexPath: indexPath) as! UITableViewCell
         
         cell.textLabel?.text = DisplayInformation.FitFunction.allValues[indexPath.row].description
         cell.textLabel?.textColor = UIColor.lightGrayColor()

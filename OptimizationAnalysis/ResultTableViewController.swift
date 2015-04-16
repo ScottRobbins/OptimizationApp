@@ -51,7 +51,7 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ReportCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ReportCell", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         switch reportType {
@@ -86,11 +86,11 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
             case DisplayInformation.ReportDescriptions.FitFunctionName.rawValue:
                 return singleReport?.fitFunctionName
             case DisplayInformation.ReportDescriptions.BestM.rawValue:
-                return (singleReport? != nil) ? singleReport!.bestM.format(".4") : nil
+                return (singleReport != nil) ? singleReport!.bestM.format(".4") : nil
             case DisplayInformation.ReportDescriptions.ComputationTime.rawValue:
-                return (singleReport? != nil) ? singleReport!.computationTime.format(".4") : nil
+                return (singleReport != nil) ? singleReport!.computationTime.format(".4") : nil
             case DisplayInformation.ReportDescriptions.Dimension.rawValue:
-                return (singleReport? != nil) ? "\(singleReport!.dimension)" : nil
+                return (singleReport != nil) ? "\(singleReport!.dimension)" : nil
             default:
                 return nil
             }
@@ -101,15 +101,15 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
             case DisplayInformation.AverageReportDescriptions.FitFunctionName.rawValue:
                 return averageReport?.fitFunctionName
             case DisplayInformation.AverageReportDescriptions.AverageBestM.rawValue:
-                return (averageReport? != nil) ? averageReport!.averageBestM.format(".4") : nil
+                return (averageReport != nil) ? averageReport!.averageBestM.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.AverageComputationTime.rawValue:
-                return (averageReport? != nil) ? averageReport!.averageComputationTime.format(".4") : nil
+                return (averageReport != nil) ? averageReport!.averageComputationTime.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.StandardDeviationBestM.rawValue:
-                return (averageReport? != nil) ? averageReport!.stdDevBestM.format(".4") : nil
+                return (averageReport != nil) ? averageReport!.stdDevBestM.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.StandardDeviationComputationTime.rawValue:
-                return (averageReport? != nil) ? averageReport!.stdDevComputationTime.format(".4") : nil
+                return (averageReport != nil) ? averageReport!.stdDevComputationTime.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.Dimension.rawValue:
-                return (averageReport? != nil) ? "\(averageReport!.dimension)" : nil
+                return (averageReport != nil) ? "\(averageReport!.dimension)" : nil
             default:
                 return nil
 

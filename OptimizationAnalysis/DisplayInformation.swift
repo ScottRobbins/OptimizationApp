@@ -17,8 +17,9 @@ class DisplayInformation {
         case SteepestAscentHillClimbingWithRandomRestarts = "Steepest Ascent Hill Climbing With Random Restarts"
         case SimulatedAnnealing = "Simulated Annealing"
         case TabuSearch = "Tabu Search"
+        case ParticalSwarm = "Partical Swarm"
         
-        static let allValues = [HillClimbing, SteepestAscentHillClimbing, SteepestAscentHillClimbingWithReplacement, SteepestAscentHillClimbingWithRandomRestarts, SimulatedAnnealing, TabuSearch]
+        static let allValues = [HillClimbing, SteepestAscentHillClimbing, SteepestAscentHillClimbingWithReplacement, SteepestAscentHillClimbingWithRandomRestarts, SimulatedAnnealing, TabuSearch, ParticalSwarm]
         
         var description : String {
             get {
@@ -51,15 +52,22 @@ class DisplayInformation {
         case UpperBound = "Upper Bound"
         case LowerChange = "Lower Change"
         case UpperChange = "Upper Change"
+        case lowerVelocity = "Lower Velocity"
+        case upperVelocity = "Upper Velocity"
         case NumberOfTimesToRun = "Number of Times to Run"
         case NumberOfTweaks = "Number of Tweaks"
         case NumberOfRandomTimes = "Number of Random Times"
+        case NumberOfParticles = "Number of Particles"
         case UpperBoundForRandomTimes = "Upper Bound For Random Times"
         case TempModifier = "Temporary Modifier"
+        case minimumWeight = "Minimum Weight"
+        case maximumWeight = "Maximum Weight"
+        case learningFactor1 = "Learning Factor 1"
+        case learningFactor2 = "Learning Factory 2"
         case MaxTabuListLength = "Max Tabu List Length"
         case RunNTimes = "Number of times to run"
         
-        static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, NumberOfTimesToRun, NumberOfTweaks, NumberOfRandomTimes, UpperBoundForRandomTimes, TempModifier, MaxTabuListLength, RunNTimes]
+        static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, lowerVelocity, upperVelocity, NumberOfTimesToRun, NumberOfTweaks, NumberOfRandomTimes, NumberOfParticles, UpperBoundForRandomTimes, TempModifier, minimumWeight, maximumWeight, MaxTabuListLength, RunNTimes]
         
         var description : String {
             get {
@@ -138,21 +146,23 @@ class DisplayInformation {
 
     
     class func getParametersForAlgorithm(algorithm : Algorithm) -> Array<Parameter> {
-        var parameters : Array<Parameter> = [.Dimension, .Iterations, .LowerBound, .UpperBound, .LowerChange, .UpperChange]
+        var parameters : Array<Parameter> = [.Dimension, .Iterations, .LowerBound, .UpperBound]
         
         switch algorithm {
         case .HillClimbing:
             break
         case .SteepestAscentHillClimbing:
-            parameters.append(.NumberOfTweaks)
+            parameters += [.LowerChange, .UpperChange, .NumberOfTweaks]
         case .SteepestAscentHillClimbingWithReplacement:
-            parameters.append(.NumberOfTweaks)
+            parameters += [.LowerChange, .UpperChange, .NumberOfTweaks]
         case .SteepestAscentHillClimbingWithRandomRestarts:
-            parameters += [.NumberOfRandomTimes, .UpperBoundForRandomTimes]
+            parameters += [.LowerChange, .UpperChange, .NumberOfRandomTimes, .UpperBoundForRandomTimes]
         case .SimulatedAnnealing:
-            parameters.append(.TempModifier)
+            parameters += [.LowerChange, .UpperChange, .TempModifier]
         case .TabuSearch:
-            parameters += [.NumberOfTweaks, .MaxTabuListLength]
+            parameters += [.LowerChange, .UpperChange, .NumberOfTweaks, .MaxTabuListLength]
+        case .ParticalSwarm:
+            parameters += [.NumberOfParticles, .lowerVelocity, .upperVelocity, .minimumWeight, .maximumWeight, .learningFactor1, .learningFactor2]
         }
         
         parameters.append(.RunNTimes)

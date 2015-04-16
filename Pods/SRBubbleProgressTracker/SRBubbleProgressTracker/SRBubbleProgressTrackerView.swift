@@ -219,7 +219,7 @@ public class SRBubbleProgressTrackerView : UIView {
         var frame = bubbleArray[start].frame
         var newFrame = CGRectMake(frame.size.width / 2.0, frame.size.height / 2.0, 0, 0)
         var temporaryBubble = getBubbleView(frame, number: start+1)
-        var labelView = temporaryBubble.subviews[0] as UILabel
+        var labelView = temporaryBubble.subviews[0] as! UILabel
         labelView.textColor = bubbleTextColorForCompleted
         var tempBubbleCornerRadius = temporaryBubble.layer.cornerRadius
         
@@ -266,7 +266,7 @@ public class SRBubbleProgressTrackerView : UIView {
                     
                     // Do the same thing as we did for the other bubble
                     temporaryBubble = self.getBubbleView(frame, number: start + 2)
-                    labelView = temporaryBubble.subviews[0] as UILabel
+                    labelView = temporaryBubble.subviews[0] as! UILabel
                     labelView.removeFromSuperview() // remove it so we can add it overtop of the new filling bubble
                     temporaryBubble.frame = newFrame
                     temporaryBubble.backgroundColor = self.bubbleBackgroundColorForNextToComplete

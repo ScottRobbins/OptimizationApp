@@ -17,6 +17,7 @@
 		ECB8E9CE1ABA9E5A00A24A7D /* ChartViewToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9CD1ABA9E5A00A24A7D /* ChartViewToolTipView.swift */; };
 		ECB8E9D01ABAA16D00A24A7D /* BaseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9CF1ABAA16D00A24A7D /* BaseChartViewController.swift */; };
 		ECB8E9D21ABAA35700A24A7D /* ChartViewToolTipTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9D11ABAA35700A24A7D /* ChartViewToolTipTipView.swift */; };
+		ECC2BA181AD4B16F00F609CE /* ParticalSwarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2BA171AD4B16F00F609CE /* ParticalSwarm.swift */; };
 		ECC2F4461A9810EC00051078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4451A9810EC00051078 /* AppDelegate.swift */; };
 		ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F44C1A9810EC00051078 /* Images.xcassets */; };
 		ECC2F4501A9810EC00051078 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */; };
@@ -63,6 +64,7 @@
 		ECB8E9CD1ABA9E5A00A24A7D /* ChartViewToolTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewToolTipView.swift; sourceTree = "<group>"; };
 		ECB8E9CF1ABAA16D00A24A7D /* BaseChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartViewController.swift; sourceTree = "<group>"; };
 		ECB8E9D11ABAA35700A24A7D /* ChartViewToolTipTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewToolTipTipView.swift; sourceTree = "<group>"; };
+		ECC2BA171AD4B16F00F609CE /* ParticalSwarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticalSwarm.swift; sourceTree = "<group>"; };
 		ECC2F4401A9810EC00051078 /* OptimizationAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OptimizationAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC2F4441A9810EC00051078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC2F4451A9810EC00051078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				ECC2F4721A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift */,
 				ECC2F4731A98113F00051078 /* SimulatedAnnealing.swift */,
 				ECC2F4741A98113F00051078 /* TabuSearch.swift */,
+				ECC2BA171AD4B16F00F609CE /* ParticalSwarm.swift */,
 			);
 			name = Algorithms;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				ECB8E9C21ABA705800A24A7D /* Iteration.swift in Sources */,
 				EC6CD6691AC3E564003AD16C /* GraphPickerTableViewController.swift in Sources */,
 				ECC2F4881A9811DD00051078 /* Utils.swift in Sources */,
+				ECC2BA181AD4B16F00F609CE /* ParticalSwarm.swift in Sources */,
 				ECC2F4761A98113F00051078 /* SteepestAscentHillClimbing.swift in Sources */,
 				ECC2F4751A98113F00051078 /* HillClimbing.swift in Sources */,
 				EC6CD66F1AC92765003AD16C /* Bar.swift in Sources */,

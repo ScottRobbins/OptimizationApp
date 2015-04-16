@@ -84,7 +84,8 @@ class AlgorithmManager {
                         
                     case .TabuSearch:
                         report = TabuSearch.tabuSearch(fitFunc, Nd: params[0], Nt: params[1], lowerBound: params[2], upperBound: params[3], lowerChange: params[4], upperChange: params[5], maxTabuListLength: params[6], numTweaks: params[7], getDataset: AlgorithmManager.getDataset, tweak: AlgorithmManager.tweak)
-                        
+                    case .ParticalSwarm:
+                        report = ParticalSwarm.particalSwarm(fitFunc, Nd: params[0], Nt: params[1], Np: params[4], wMin: params[7], wMax: params[8], lowerVelocity: params[5], upperVelocity: params[6], c1: params[9], c2: params[10], lowerBound: params[2], upperBound: params[3], getDataset: AlgorithmManager.getDatasetForPSO, getVelocities: AlgorithmManager.getVelocities)
                     default:
                         break
                     }
@@ -128,6 +129,8 @@ class AlgorithmManager {
                         
                     case .TabuSearch:
                         report = TabuSearch.tabuSearch(fitFunc, Nd: params[0], Nt: params[1], lowerBound: params[2], upperBound: params[3], lowerChange: params[4], upperChange: params[5], maxTabuListLength: params[6], numTweaks: params[7], getDataset: AlgorithmManager.getDataset, tweak: AlgorithmManager.tweak, runNTimes : params[8])
+                    case .ParticalSwarm:
+                        report = ParticalSwarm.particalSwarm(fitFunc, Nd: params[0], Nt: params[1], Np: params[4], wMin: params[7], wMax: params[8], lowerVelocity: params[5], upperVelocity: params[6], c1: params[9], c2: params[10], lowerBound: params[2], upperBound: params[3], getDataset: AlgorithmManager.getDatasetForPSO, getVelocities: AlgorithmManager.getVelocities, runNTimes: params[11])
                         
                     default:
                         break
@@ -179,6 +182,38 @@ class AlgorithmManager {
         }
         
         return R
+    }
+    
+    class func getDatasetForPSO(Np : Int, Nd : Int, lowerBound : Int, upperBound : Int) -> [[Double]] {
+        var innerArray : [Double] = [Double]()
+        var outerArray : [[Double]] = [[Double]]()
+        for _ in 0..<Np {
+            innerArray.removeAll(keepCapacity: false)
+            for _ in 0..<Nd {
+                innerArray.append(Double(lowerBound) + Double(arc4random()) / Double(UINT32_MAX) * Double(upperBound - lowerBound))
+            }
+            
+            outerArray.append(innerArray)
+        }
+        
+        return outerArray
+    }
+    
+    class func getVelocities(Np : Int, Nd : Int, lowerVelocity : Int, upperVelocity : Int) -> [[Double]] {
+        var innerArray : [Double] = [Double]()
+        var outerArray : [[Double]] = [[Double]]()
+        
+        for _ in 0..<Np {
+            innerArray.removeAll(keepCapacity: false)
+            for _ in 0..<Nd {
+                innerArray.append(Double(lowerVelocity) + Double(arc4random()) / Double(UINT32_MAX) * Double(upperVelocity - lowerVelocity))
+            }
+            
+            outerArray.append(innerArray)
+        }
+        
+        return outerArray
+
     }
     
     class func tweak(R : [Double], lowerChange : Int, upperChange : Int, lowerBound : Int, upperBound : Int) -> [Double]? {

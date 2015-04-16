@@ -14,8 +14,8 @@ class ChartViewToolTipView: UIView {
     var textLabel = UILabel()
     
     // MARK: Initializers
-    override init() {
-        super.init(frame: CGRectMake(0, 0, kChartViewToolTipViewDefaultWidth, kChartViewToolTipViewDefaultHeight))
+    convenience init() {
+        self.init(frame: CGRectMake(0, 0, kChartViewToolTipViewDefaultWidth, kChartViewToolTipViewDefaultHeight))
         setupTextLabel()
     }
     

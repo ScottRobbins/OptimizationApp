@@ -29,7 +29,7 @@ class AlgorithmPickerTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AlgorithmCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("AlgorithmCell", forIndexPath: indexPath) as! UITableViewCell
 
         cell.textLabel?.text = DisplayInformation.Algorithm.allValues[indexPath.row].description
         cell.textLabel?.textColor = UIColor.lightGrayColor()
