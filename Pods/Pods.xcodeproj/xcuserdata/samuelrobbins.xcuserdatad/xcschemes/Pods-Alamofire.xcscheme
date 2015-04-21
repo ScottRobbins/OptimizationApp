@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED774CCDD6ECBF0F4CCE0084"
-               BuildableName = "JBChartView.framework"
-               BlueprintName = "Pods-JBChartView"
+               BlueprintIdentifier = "6172A9A011AEADE00B6619C7"
+               BuildableName = "Alamofire.framework"
+               BlueprintName = "Pods-Alamofire"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

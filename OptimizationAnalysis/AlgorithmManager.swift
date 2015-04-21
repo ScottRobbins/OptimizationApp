@@ -21,9 +21,10 @@ enum ReportType {
 
 class AlgorithmManager {
     
-    // MARK: Declarations
+    // MARK: Private Declarations
     private var _algorithm : DisplayInformation.Algorithm? = nil
-    
+
+    // MARK: Public Declarations
     var algorithm : DisplayInformation.Algorithm? {
         get {
             return self._algorithm

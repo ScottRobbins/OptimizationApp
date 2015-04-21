@@ -1,9 +1,11 @@
 PODS:
+  - Alamofire (1.2.0)
   - JBChartView (2.8.10)
   - SRBubbleProgressTracker (1.0.5)
 
 DEPENDENCIES:
-  - JBChartView
+  - Alamofire (~> 1.2)
+  - JBChartView (~> 2.8.10)
   - SRBubbleProgressTracker (from `https://github.com/ssrobbi/SRBubbleProgressTracker.git`)
 
 EXTERNAL SOURCES:
@@ -16,7 +18,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ssrobbi/SRBubbleProgressTracker.git
 
 SPEC CHECKSUMS:
-  JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
+  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  JBChartView: 187186c4730d806962da8ba99aa0d03a77aa35f7
   SRBubbleProgressTracker: f59090c2cc26c2c531416c87fd34964e69ff876a
 
-COCOAPODS: 0.36.0.beta.2
+COCOAPODS: 0.36.0

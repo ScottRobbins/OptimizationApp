@@ -69,3 +69,13 @@ extension Array {
         return retVal
     }
 }
+
+extension String {
+    var doubleValue: Double? {
+        if let number = NSNumberFormatter().numberFromString(self) {
+            return number.doubleValue
+        } else {
+            return nil
+        }
+    }
+}

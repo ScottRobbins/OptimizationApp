@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DAFE7FF9-DE71-4146-84FD-8078C878F2B7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OptimizationAnalysis</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>778897E17C1332C431A987244F9EE71ABE7D7E4E</key>
+		<string>ec2-52-11-211-134.us-west-2.compute.amazonaws.com:opt/git/OptimizationAnalysis.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OptimizationAnalysis.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>778897E17C1332C431A987244F9EE71ABE7D7E4E</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ec2-52-11-211-134.us-west-2.compute.amazonaws.com:opt/git/OptimizationAnalysis.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>778897E17C1332C431A987244F9EE71ABE7D7E4E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>778897E17C1332C431A987244F9EE71ABE7D7E4E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OptimizationAnalysis</string>
+		</dict>
+	</array>
+</dict>
+</plist>

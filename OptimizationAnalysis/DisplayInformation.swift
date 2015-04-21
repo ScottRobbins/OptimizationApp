@@ -9,6 +9,7 @@
 import Foundation
 
 class DisplayInformation {
+    
     // Algorithm Enum
     enum Algorithm : String, Printable {
         case HillClimbing = "Hill Climbing"
