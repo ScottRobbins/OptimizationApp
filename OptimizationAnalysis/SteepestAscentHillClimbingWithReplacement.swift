@@ -83,7 +83,7 @@ class SteepestAscentHillClimbingWithReplacement {
             report.iterations.append(Iteration(bestM: report.bestM))
         }
         
-        report.algorithmName = DisplayInformation.Algorithm.SteepestAscentHillClimbingWithReplacement.description
+        report.algorithmName = DisplayInformation.DisplayAlgorithm.SteepestAscentHillClimbingWithReplacement.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
         report.dimension = Nd
         

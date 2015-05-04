@@ -90,7 +90,7 @@ class SteepestAscentHillClimbingWithRandomRestarts {
             R = getDataset(Nd, lowerBound, upperBound)
         }
         
-        report.algorithmName = DisplayInformation.Algorithm.SteepestAscentHillClimbingWithRandomRestarts.description
+        report.algorithmName = DisplayInformation.DisplayAlgorithm.SteepestAscentHillClimbingWithRandomRestarts.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
         report.dimension = Nd
         

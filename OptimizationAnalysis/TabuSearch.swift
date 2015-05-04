@@ -104,7 +104,7 @@ class TabuSearch {
             report.iterations.append(Iteration(bestM: report.bestM))
         }
         
-        report.algorithmName = DisplayInformation.Algorithm.TabuSearch.description
+        report.algorithmName = DisplayInformation.DisplayAlgorithm.TabuSearch.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
         report.dimension = Nd
         

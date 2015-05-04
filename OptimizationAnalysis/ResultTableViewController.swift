@@ -56,15 +56,15 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
         // Configure the cell...
         switch reportType {
         case .Single:
-            cell.textLabel?.text = DisplayInformation.ReportDescriptions.allValues[indexPath.row].rawValue
-            if let text = getStringValueForDescription(DisplayInformation.ReportDescriptions.allValues[indexPath.row].rawValue) {
+            cell.textLabel?.text = DisplayInformation.ReportDescriptions.allValues[indexPath.row].description
+            if let text = getStringValueForDescription(DisplayInformation.ReportDescriptions.allValues[indexPath.row].description) {
                 cell.detailTextLabel?.text = text
             } else {
                 cell.detailTextLabel?.text = "N/A"
             }
         case .Average:
-            cell.textLabel?.text = DisplayInformation.AverageReportDescriptions.allValues[indexPath.row].rawValue
-            if let text = getStringValueForDescription(DisplayInformation.AverageReportDescriptions.allValues[indexPath.row].rawValue) {
+            cell.textLabel?.text = DisplayInformation.AverageReportDescriptions.allValues[indexPath.row].description
+            if let text = getStringValueForDescription(DisplayInformation.AverageReportDescriptions.allValues[indexPath.row].description) {
                 cell.detailTextLabel?.text = text
             } else {
                 cell.detailTextLabel?.text = "N/A"
@@ -81,34 +81,34 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
         switch reportType {
         case .Single:
             switch description {
-            case DisplayInformation.ReportDescriptions.AlgorithmName.rawValue:
+            case DisplayInformation.ReportDescriptions.AlgorithmName.description:
                 return singleReport?.algorithmName
-            case DisplayInformation.ReportDescriptions.FitFunctionName.rawValue:
+            case DisplayInformation.ReportDescriptions.FitFunctionName.description:
                 return singleReport?.fitFunctionName
-            case DisplayInformation.ReportDescriptions.BestM.rawValue:
+            case DisplayInformation.ReportDescriptions.BestM.description:
                 return (singleReport != nil) ? singleReport!.bestM.format(".4") : nil
-            case DisplayInformation.ReportDescriptions.ComputationTime.rawValue:
+            case DisplayInformation.ReportDescriptions.ComputationTime.description:
                 return (singleReport != nil) ? singleReport!.computationTime.format(".4") : nil
-            case DisplayInformation.ReportDescriptions.Dimension.rawValue:
+            case DisplayInformation.ReportDescriptions.Dimension.description:
                 return (singleReport != nil) ? "\(singleReport!.dimension)" : nil
             default:
                 return nil
             }
         case .Average:
             switch description {
-            case DisplayInformation.AverageReportDescriptions.AlgorithmName.rawValue:
+            case DisplayInformation.AverageReportDescriptions.AlgorithmName.description:
                 return averageReport?.algorithmName
-            case DisplayInformation.AverageReportDescriptions.FitFunctionName.rawValue:
+            case DisplayInformation.AverageReportDescriptions.FitFunctionName.description:
                 return averageReport?.fitFunctionName
-            case DisplayInformation.AverageReportDescriptions.AverageBestM.rawValue:
+            case DisplayInformation.AverageReportDescriptions.AverageBestM.description:
                 return (averageReport != nil) ? averageReport!.averageBestM.format(".4") : nil
-            case DisplayInformation.AverageReportDescriptions.AverageComputationTime.rawValue:
+            case DisplayInformation.AverageReportDescriptions.AverageComputationTime.description:
                 return (averageReport != nil) ? averageReport!.averageComputationTime.format(".4") : nil
-            case DisplayInformation.AverageReportDescriptions.StandardDeviationBestM.rawValue:
+            case DisplayInformation.AverageReportDescriptions.StandardDeviationBestM.description:
                 return (averageReport != nil) ? averageReport!.stdDevBestM.format(".4") : nil
-            case DisplayInformation.AverageReportDescriptions.StandardDeviationComputationTime.rawValue:
+            case DisplayInformation.AverageReportDescriptions.StandardDeviationComputationTime.description:
                 return (averageReport != nil) ? averageReport!.stdDevComputationTime.format(".4") : nil
-            case DisplayInformation.AverageReportDescriptions.Dimension.rawValue:
+            case DisplayInformation.AverageReportDescriptions.Dimension.description:
                 return (averageReport != nil) ? "\(averageReport!.dimension)" : nil
             default:
                 return nil

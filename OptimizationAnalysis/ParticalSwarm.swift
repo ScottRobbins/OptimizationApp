@@ -17,27 +17,25 @@ class ParticalSwarm {
         Nd : Int, // Number of Dimensions
         Nt : Int, // Number of Iterations
         Np : Int, // Number of Particles
-        wMin : Int, // Weight Min
-        wMax : Int, // Weight Max
-        lowerVelocity : Int, // Velocity Min
-        upperVelocity : Int, // Velocity Max
-        c1 : Int,   // Learning Factor
-        c2 : Int,   // Learning Factor
+        weight : Int, // weight
+        lowerVelocity : Double, // Velocity Min
+        upperVelocity : Double, // Velocity Max
+        c1 : Double,   // Learning Factor
+        c2 : Double,   // Learning Factor
         lowerBound : Int, // Lower Bound
         upperBound : Int, // Upper Bound
         getDataset : (Int, Int, Int, Int) -> [[Double]], // Np, Nd, lower bound, upper bound
-        getVelocities : (Int, Int, Int, Int) -> [[Double]]) // Np, Nd, vMin, vMax
+        getVelocities : (Int, Int, Double, Double) -> [[Double]]) // Np, Nd, vMin, vMax
         -> Report?
     {
         var R : [[Double]] = getDataset(Np, Nd, lowerBound, upperBound)
         var V : [[Double]] = getVelocities(Np, Nd, lowerVelocity, upperVelocity)
-        var w = Double()
         
         if R.isEmpty || R.count != Np || V.isEmpty { return nil }
         var M : [Double] = (0..<Np).map() { fitFunc(R[$0])! } // can unwrap because the only case of returning nil is if r is empty
         
         var report = Report()
-        let phi = Double(c1 + c2)
+        let phi = c1 + c2
         let chi = 2.0 / abs(2.0 - phi - sqrt(pow(phi, 2) - 4 * phi))
         var gBestValue = Double()
         if let temp = fitFunc(R[0]) {
@@ -77,9 +75,6 @@ class ParticalSwarm {
                 }
             }
             
-            // Reset the weight
-            w = Double(wMax) - (Double(wMax - wMin) / Double(Nt)) * Double(j)
-            
             // Update Velocity
             for p in 0..<Np {
                 for i in 0..<Nd {
@@ -87,12 +82,12 @@ class ParticalSwarm {
                     var r2 = Double(arc4random())
                     
                     // it was too long to put in one statement
-                    var tempVal = w * V[p][i] + r1 * Double(c1)
+                    var tempVal = Double(weight) * V[p][i] + r1 * Double(c1)
                     tempVal = tempVal * (pBestPos[p][i] - R[p][i]) + r2*Double(c2)
                     V[p][i] =  tempVal*(gBestPos[i] - R[p][i]) * chi
                     
-                    V[p][i] = (V[p][i] > Double(upperVelocity)) ? Double(upperVelocity) : V[p][i]
-                    V[p][i] = (V[p][i] < Double(lowerVelocity)) ? Double(lowerVelocity) : V[p][i]
+                    V[p][i] = (V[p][i] > upperVelocity) ? upperVelocity : V[p][i]
+                    V[p][i] = (V[p][i] < lowerVelocity) ? lowerVelocity : V[p][i]
                 }
             }
             
@@ -102,7 +97,7 @@ class ParticalSwarm {
         
         report.bestM = gBestValue
         report.bestSolution = gBestPos
-        report.algorithmName = DisplayInformation.Algorithm.TabuSearch.description
+        report.algorithmName = DisplayInformation.DisplayAlgorithm.TabuSearch.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
         report.dimension = Nd
         
@@ -113,16 +108,15 @@ class ParticalSwarm {
         Nd : Int, // Number of Dimensions
         Nt : Int, // Number of Iterations
         Np : Int, // Number of Particles
-        wMin : Int, // Weight Min
-        wMax : Int, // Weight Max
-        lowerVelocity : Int, // Velocity Min
-        upperVelocity : Int, // Velocity Max
-        c1 : Int,   // Learning Factor
-        c2 : Int,   // Learning Factor
+        weight : Int, // Weight
+        lowerVelocity : Double, // Velocity Min
+        upperVelocity : Double, // Velocity Max
+        c1 : Double,   // Learning Factor
+        c2 : Double,   // Learning Factor
         lowerBound : Int, // Lower Bound
         upperBound : Int, // Upper Bound
         getDataset : (Int, Int, Int, Int) -> [[Double]], // Np, Nd, lower bound, upper bound
-        getVelocities : (Int, Int, Int, Int) -> [[Double]], // Np, Nd, vMin, vMax
+        getVelocities : (Int, Int, Double, Double) -> [[Double]], // Np, Nd, vMin, vMax
         runNTimes : Int)// R, lowerChange, upperChange, lowerBound, upperBound
         -> AverageReport?
     {
@@ -134,8 +128,7 @@ class ParticalSwarm {
         
         for _ in 0..<runNTimes {
             
-            // TODO: Switch tabuSearch out for PSO
-            if let tempReport = particalSwarm(fitFunc, Nd: Nd, Nt: Nt, Np: Np, wMin: wMin, wMax: wMax, lowerVelocity: lowerVelocity, upperVelocity: upperVelocity, c1: c1, c2: c2, lowerBound: lowerBound, upperBound: upperBound, getDataset: getDataset, getVelocities: getVelocities) {
+            if let tempReport = particalSwarm(fitFunc, Nd: Nd, Nt: Nt, Np: Np, weight: weight, lowerVelocity: lowerVelocity, upperVelocity: upperVelocity, c1: c1, c2: c2, lowerBound: lowerBound, upperBound: upperBound, getDataset: getDataset, getVelocities: getVelocities) {
                 
                 report = tempReport
             } else { return nil }

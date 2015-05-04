@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ApiAlgorithmManager {
+class ApiAlgorithmManager : AlgorithmManager {
 
     // MARK: Public Declarations
     var apiAlgorithms : [Algorithm] {
@@ -18,27 +18,65 @@ class ApiAlgorithmManager {
         }
     }
     
+    var apiFitFunctions : [FitFunction] {
+        get {
+            return self._apiFitFunctions
+        }
+    }
+    
+    var fitFunction = FitFunction()
+    
     // MARK: Private Declarations
     private var _apiAlgorithms = [Algorithm]()
+    private var _apiFitFunctions = [FitFunction]()
+    
 
     // MARK: Network Calls
     func getAlgorithms() {
-        Alamofire.request(.GET, "http://andy.ampache.com:4900/algorithms", parameters: nil, encoding: .JSON)
-        .responseJSON { (_, _, JSON, _) in
-            self.parseAlgorithmJSON(JSON)
+        let _apiString = Environment.apiString
+        
+        switch _apiString {
+        case .Success(let apiString):
+            Alamofire.request(.GET, "\(apiString)/algorithms", parameters: nil, encoding: .JSON)
+                .responseJSON { (_, _, JSON, _) in
+                    self.parseAlgorithmJSON(JSON)
+                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: kAlgorithmsHaveUpdated, object: nil))
+            }
+        case .Failure(let exception):
+            // Programming error: Danger Will Robinson, Danger!
+            NSException(name: "Api String Not Found Exception", reason: "Api string could not be found in plist", userInfo: nil).raise()
         }
+    }
+    
+    func getFitFunctions() {
+        let _apiString = Environment.apiString
+        
+        switch _apiString {
+        case .Success(let apiString):
+            Alamofire.request(.GET, "\(apiString)/fitness", parameters: nil, encoding: .JSON)
+                .responseJSON { (_, _, JSON, _) in
+                    self.parseFitFunctionJSON(JSON)
+                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: kFitFunctionsHaveUpdated, object: nil))
+            }
+        case .Failure(let exception):
+            // Programming error: Danger Will Robinson, Danger!
+            NSException(name: "Api String Not Found Exception", reason: "Api string could not be found in plist", userInfo: nil).raise()
+        }
+
     }
     
     // MARK: Parsing Functions
     private func parseAlgorithmJSON(JSON : AnyObject?) {
         var algs = [Algorithm]()
-        if let algorithms = JSON as? [[String : Any]] {
+        if let algorithms = JSON as? [[String : AnyObject]] {
             for algorithm in algorithms {
-                if let id = algorithm["id"] as? String, let name = algorithm["name"] as? String, let params = algorithm["params"] as? [[String: String]] {
-                    var alg = Algorithm(id: id, name: name)
-                    var parameters = getParametersFromInput(params)
-                    alg.setParameters(parameters)
-                    algs.append(alg)
+                if let id = algorithm["id"] as? String, let name = algorithm["name"] as? String, let params = algorithm["params"] as? [[String: AnyObject]] {
+                    if let _algorithmType = getAlgorithmTypeForString(id) {
+                        var alg = Algorithm(id: id, name: name, type: _algorithmType) // api doesn't need to set type
+                        var parameters = getParametersFromInput(params)
+                        alg.setParameters(parameters)
+                        algs.append(alg)
+                    }
                 }
             }
         }
@@ -46,15 +84,106 @@ class ApiAlgorithmManager {
         _apiAlgorithms = algs
     }
     
-    private func getParametersFromInput(params : [[String: String]]) -> [Parameter] {
+    private func parseFitFunctionJSON(JSON : AnyObject?) {
+        var fitFuncs = [FitFunction]()
+        if let fitFunctions = JSON as? [[String : String]] {
+            for fitFunction in fitFunctions {
+                if let id = fitFunction["id"], let name = fitFunction["name"] {
+                    if let _fitFunc = getFitFunctionTypeForString(id) {
+                        var fitFunc = FitFunction(id: id, name: name, fitFunctionType: _fitFunc)
+                        fitFuncs.append(fitFunc)
+                    }
+                }
+            }
+        }
+        
+        _apiFitFunctions = fitFuncs
+    }
+    
+    private func getParametersFromInput(params : [[String: AnyObject]]) -> [Parameter] {
         var parameters = [Parameter]()
         for param in params {
-            // TODO: Add in name when it exists
-            if let ident = param["id"], let description = param["description"], let min = param["min"]?.doubleValue, let max = param["max"]?.doubleValue {
-                parameters.append(Parameter(ident: ident, name: "", description: description, max: max, min: min))
+            if let ident = param["id"] as? String, let name = param["name"] as? String, let description = param["description"] as? String, let min = param["min"] as? Int, let max = param["max"] as? Int, let type = param["type"] as? String {
+                parameters.append(Parameter(ident: ident, name: name, description: description, max: Double(max), min: Double(min), dataType: Parameter.getDataTypeForString(type)))
             }
         }
         
         return parameters
+    }
+    
+    // MARK: Algorithm Methods
+    func runAlgorithm() {
+        let _apiString = Environment.apiString
+        let parameters = buildParametersJSONForAlgorithm()
+        
+        switch _apiString {
+        case .Success(let apiString):
+            Alamofire.request(.POST, "\(apiString)/execute", parameters: parameters, encoding: .JSON)
+                .responseJSON { (_, _, JSON, _) in
+                    self.parseAlgorithmResponseJSON(JSON)
+            }
+        case .Failure(let exception):
+            // Programming error: Danger Will Robinson, Danger!
+            NSException(name: "Api String Not Found Exception", reason: "Api string could not be found in plist", userInfo: nil).raise()
+        }
+    }
+    
+    private func buildParametersJSONForAlgorithm() -> [String : AnyObject] {
+        var jsonDict = [String : AnyObject]()
+        
+        jsonDict["algorithm"] = algorithm.id
+        jsonDict["fitnessFunction"] = fitFunction.id
+        
+        var parameterJSONDict = [String : AnyObject]()
+        for parameter in algorithm.parameters {
+            if let ident = parameter.ident {
+                parameterJSONDict[ident] = parameter.value
+            }
+        }
+        
+        parameterJSONDict["isMaxObj"] = true
+        jsonDict["parameters"] = parameterJSONDict
+        
+        return jsonDict
+    }
+    
+    private func parseAlgorithmResponseJSON(JSON : AnyObject?) {
+        
+    }
+    
+    private func getAlgorithmTypeForString(idString : String) -> DisplayInformation.DisplayAlgorithm? {
+        switch idString {
+        case "hillClimb":
+            return .HillClimbing
+        case "steepestAscent":
+            return .SteepestAscentHillClimbing
+        case "steepestAscentWithReplacement":
+            return .SteepestAscentHillClimbingWithReplacement
+        case "steepestAscentHillClimbingWithRandomRestarts":
+            return .SteepestAscentHillClimbingWithRandomRestarts
+        case "simulatedAnnealing":
+            return .SimulatedAnnealing
+        case "tabuSearch":
+            return .TabuSearch
+        case "particleSwarm":
+            return .ParticalSwarm
+        default:
+            return nil
+        }
+    }
+    
+    private func getFitFunctionTypeForString(fitFuncId : String) -> DisplayInformation.DisplayFitFunction? {
+        switch fitFuncId {
+        case "sphere":
+            return .Sphere
+        case "rastrigin":
+            return .Rastrigin
+        case "griewank":
+            return .Griewank
+        case "rosenbrock":
+            return .Rosenbrock
+        default:
+            return nil
+        }
     }
 }

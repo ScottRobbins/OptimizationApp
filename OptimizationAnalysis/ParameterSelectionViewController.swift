@@ -11,13 +11,10 @@ import SRBubbleProgressTracker
 
 class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, AlgorithmManagerDelegate {
     
-    // MARK: Initializations
-    var algorithmManager : AlgorithmManager? = nil
-    private var bubbleTrackerViewIsSetup = false
-    private var currentTextFieldEdited = UITextField()
-    private var currentSVContentOffset = CGPointMake(0, 0)
-    private var keyBoardIsUp = false
-    private var textFields = [UITextField]()
+    // MARK: Publid Declarations
+    var appAlgorithmManager : AppAlgorithmManager?
+    var apiAlgorithmManager : ApiAlgorithmManager?
+    
     let kShowSingleResultTableViewControllerSegue = "kShowSingleResultTableViewControllerSegue"
     let kShowAverageResultTableViewControllerSegue = "kShowAverageResultTableViewControllerSegue"
     
@@ -25,13 +22,21 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     @IBOutlet weak var bubbleTrackerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bubbleTrackerView: SRBubbleProgressTrackerView!
+    
+    // MARK: Private Declarations
+    private var bubbleTrackerViewIsSetup = false
+    private var currentTextFieldEdited = UITextField()
+    private var currentSVContentOffset = CGPointMake(0, 0)
+    private var keyBoardIsUp = false
+    private var textFields = [UITextField]()
 
     // MARK: ViewControllerLifecycle and BubbleTrackerView setup
     override func viewDidLoad() {
         super.viewDidLoad()
         var tapGesture = UITapGestureRecognizer(target: self, action: "viewTapped")
         self.view.addGestureRecognizer(tapGesture)
-        algorithmManager?.delegate = self
+        appAlgorithmManager?.delegate = self
+        apiAlgorithmManager?.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,51 +82,94 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     
     private func getLeftViews() -> [UIView]? {
         var leftViews = [UIView]()
-        if let algorithm = algorithmManager?.algorithm {
-            for parameter in DisplayInformation.getParametersForAlgorithm(algorithm) {
-                var label = UILabel(frame: CGRectMake(0, 0, (bubbleTrackerView.frame.size.width / 2.0) - ((40.0 / 2.0) + 20.0 + 8.0), 100)) // the 20 is me knowing how far from the bubble it's going to put the label (source). The 8 gives me space from the side, the 75 is the bubble diameter. 100 is an arbitrary height, probably should be calculated by the text you're putting in, sorry broski
-                label.text = parameter.description
-                label.textColor = UIColor.lightGrayColor()
-                label.font = UIFont.systemFontOfSize(15)
-                label.lineBreakMode = .ByWordWrapping
-                label.textAlignment = .Right
-                label.numberOfLines = 0
+        if apiAlgorithmManager?.shouldBeRun == true && !(appAlgorithmManager?.shouldBeRun == true) {
+            for parameter in apiAlgorithmManager!.algorithm.parameters {
+                var label = getLeftViewLabelWithText(parameter.name)
                 leftViews.append(label)
             }
-        } else { return nil }
+        } else {
+            if let algorithm = appAlgorithmManager?.algorithm {
+                for parameter in DisplayInformation.getParametersForAlgorithm(algorithm.algorithmType) {
+                    var label = getLeftViewLabelWithText(parameter.name)
+                    leftViews.append(label)
+                }
+            } else { return nil }
+        }
         
         return leftViews
+    }
+    
+    private func getLeftViewLabelWithText(text : String) -> UILabel {
+        var label = UILabel(frame: CGRectMake(0, 0, (bubbleTrackerView.frame.size.width / 2.0) - ((40.0 / 2.0) + 20.0 + 8.0), 100)) // the 20 is me knowing how far from the bubble it's going to put the label (source). The 8 gives me space from the side, the 75 is the bubble diameter. 100 is an arbitrary height, probably should be calculated by the text you're putting in, sorry broski
+        label.text = text
+        label.textColor = UIColor.lightGrayColor()
+        label.font = UIFont.systemFontOfSize(15)
+        label.lineBreakMode = .ByWordWrapping
+        label.textAlignment = .Right
+        label.numberOfLines = 0
+
+        return label
     }
     
     private func getRightViews() -> [UIView]? {
         var rightViews = [UIView]()
         
-        if let algorithm = algorithmManager?.algorithm {
-            for (index, _) in enumerate(DisplayInformation.getParametersForAlgorithm(algorithm)) {
-                var textView = UITextField(frame: CGRectMake(0, 0, (bubbleTrackerView.frame.size.width / 2.0) - ((75.0 / 2.0) + 20.0 + 20.0), 25))
-                textView.keyboardType = .NumberPad
-                textView.borderStyle = .RoundedRect
-                textView.backgroundColor = UIColor.lightGrayColor()
-                textView.tag = index
-                textView.delegate = self
-                
-                if index < DisplayInformation.getParametersForAlgorithm(algorithm).count - 1 {
-                    var accessoryView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 40))
-                    accessoryView.backgroundColor = UIColor.darkGrayColor()
-                    accessoryView.alpha = 0.8
-                    var minusButton = UIButton(frame: CGRectMake((self.view.frame.size.width-150)/2.0, 5, 150, 30))
-                    // configure the button here... you choose.
-                    minusButton.setTitle("+/-", forState: .Normal)
-                    minusButton.addTarget(self, action: "changeNumberString:", forControlEvents: .TouchUpInside)
-                    accessoryView.addSubview(minusButton)
-                    textView.inputAccessoryView = accessoryView
-                }
-                
+        if apiAlgorithmManager?.shouldBeRun == true && !(appAlgorithmManager?.shouldBeRun == true) {
+            for (index, _) in enumerate(apiAlgorithmManager!.algorithm.parameters) {
+                var textView = getRightViewTextViewWithIndex(index)
                 rightViews.append(textView)
             }
-        } else { return nil }
+        } else {
+            if let algorithm = appAlgorithmManager?.algorithm {
+                for (index, _) in enumerate(DisplayInformation.getParametersForAlgorithm(algorithm.algorithmType)) {
+                    var textView = getRightViewTextViewWithIndex(index)
+                    rightViews.append(textView)
+                }
+            } else { return nil }
+        }
         
         return rightViews
+    }
+    
+    private func getRightViewTextViewWithIndex(index : Int) -> UITextField {
+        var textView = UITextField(frame: CGRectMake(0, 0, (bubbleTrackerView.frame.size.width / 2.0) - ((75.0 / 2.0) + 20.0 + 20.0), 25))
+        
+        if apiAlgorithmManager?.shouldBeRun == true && !(appAlgorithmManager?.shouldBeRun == true) {
+            switch apiAlgorithmManager!.algorithm.parameters[index].dataType {
+            case .Integer:
+                textView.keyboardType = .NumberPad
+            case .Float:
+                textView.keyboardType = .DecimalPad
+            default:
+                textView.keyboardType = .NumberPad
+            }
+        } else {
+            switch appAlgorithmManager!.algorithm.parameters[index].dataType {
+            case .Integer:
+                textView.keyboardType = .NumberPad
+            case .Float:
+                textView.keyboardType = .DecimalPad
+            default:
+                textView.keyboardType = .NumberPad
+            }
+        }
+
+        textView.borderStyle = .RoundedRect
+        textView.backgroundColor = UIColor.lightGrayColor()
+        textView.tag = index
+        textView.delegate = self
+        
+        var accessoryView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 40))
+        accessoryView.backgroundColor = UIColor.darkGrayColor()
+        accessoryView.alpha = 0.8
+        var minusButton = UIButton(frame: CGRectMake((self.view.frame.size.width-150)/2.0, 5, 150, 30))
+        // configure the button here... you choose.
+        minusButton.setTitle("+/-", forState: .Normal)
+        minusButton.addTarget(self, action: "changeNumberString:", forControlEvents: .TouchUpInside)
+        accessoryView.addSubview(minusButton)
+        textView.inputAccessoryView = accessoryView
+        
+        return textView
     }
     
     // MARK: Text Field manage
@@ -178,8 +226,19 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     @IBAction func runTest(sender: UIBarButtonItem) {
         if textFieldsAreValid(textFields) {
             // Lets run some shit
-            if let parameters = getParametersFromTextFields(textFields) {
-                algorithmManager?.runAlgorithmWithParameters(parameters)
+            fillParametersWithTextFieldValues(textFields)
+            if apiAlgorithmManager?.shouldBeRun == true && !(appAlgorithmManager?.shouldBeRun == true) {
+                if apiAlgorithmManager?.shouldBeRun == true {
+                    apiAlgorithmManager?.runAlgorithm()
+                }
+            } else {
+                if apiAlgorithmManager?.shouldBeRun == true {
+                    apiAlgorithmManager?.runAlgorithm()
+                }
+                
+                if appAlgorithmManager?.shouldBeRun == true {
+                    appAlgorithmManager?.runAlgorithm()
+                }
             }
         } else {
             var alertAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
@@ -192,21 +251,43 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     private func textFieldsAreValid(_textFields : [UITextField]) -> Bool {
         var isValid = true
         
-        for textField in _textFields {
-            if (textField.text.isEmpty || textField.text.toInt() == nil) {
+        for (i, textField) in enumerate(_textFields) {
+            if (textField.text.isEmpty || textField.text.doubleValue == nil) {
                 isValid = false
                 break
             }
+            
+            var min = apiAlgorithmManager!.algorithm.parameters[i].min
+            var max = apiAlgorithmManager!.algorithm.parameters[i].max
+            
+            if !(textField.text.doubleValue <= max && textField.text.doubleValue >= min) {
+                isValid = false
+                break
+            }
+            
         }
         
         return isValid
     }
     
-    private func getParametersFromTextFields(_textFields : [UITextField]) -> [Int]? {
-        var parameters = [Int]()
+    private func fillParametersWithTextFieldValues(_textFields : [UITextField]) {
+        for (i, textField) in enumerate(_textFields) {
+            if apiAlgorithmManager?.shouldBeRun == true && !(appAlgorithmManager?.shouldBeRun == true) {
+                
+                apiAlgorithmManager!.algorithm.parameters[i].value = apiAlgorithmManager!.algorithm.parameters[i].dataType == ParameterDataType.Integer ? textField.text.intValue : textField.text.doubleValue
+            } else {
+                if let algorithm = appAlgorithmManager?.algorithm {
+                    appAlgorithmManager?.algorithm.parameters[i].value = appAlgorithmManager!.algorithm.parameters[i].dataType == ParameterDataType.Integer ? textField.text.intValue : textField.text.doubleValue
+                }
+            }
+        }
+    }
+    
+    private func getParametersFromTextFields(_textFields : [UITextField]) -> [Double]? {
+        var parameters = [Double]()
     
         for textField in _textFields {
-            if let parameter = textField.text.toInt() {
+            if let parameter = textField.text.doubleValue {
                 parameters.append(parameter)
             } else { return nil }
         }
@@ -227,10 +308,10 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
             if let segueIdentifier = segue.identifier {
                 switch segueIdentifier {
                 case kShowSingleResultTableViewControllerSegue:
-                    viewController.singleReport = algorithmManager?.lastRunSingleReport
+                    viewController.singleReport = appAlgorithmManager?.lastRunSingleReport
                     viewController.reportType = .Single
                 case kShowAverageResultTableViewControllerSegue:
-                    viewController.averageReport = algorithmManager?.lastRunMultipleReport
+                    viewController.averageReport = appAlgorithmManager?.lastRunMultipleReport
                     viewController.reportType = .Average
                 default:
                     break

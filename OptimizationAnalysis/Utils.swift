@@ -79,3 +79,15 @@ extension String {
         }
     }
 }
+
+extension String {
+    var intValue: Int? {
+        if let number = NSNumberFormatter().numberFromString(self) {
+            return number.integerValue
+        } else {
+            return nil
+        }
+    }
+}
+
+

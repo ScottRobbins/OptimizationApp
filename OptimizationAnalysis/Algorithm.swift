@@ -29,34 +29,42 @@ class Algorithm {
         }
     }
     
+    var algorithmType : DisplayInformation.DisplayAlgorithm {
+        get {
+            return self._algorithmType
+        }
+    }
+    
+    
     // MARK: Private Declarations
     private var _id = String()
     private var _name = String()
     private var _parameters = [Parameter]()
+    private var _algorithmType = DisplayInformation.DisplayAlgorithm.HillClimbing // default to hill climbing
     
     // MARK: Initializers
     init() {
         
     }
     
-    convenience init(id : String, name : String) {
+    convenience init(id : String, name : String, type : DisplayInformation.DisplayAlgorithm) {
         self.init()
-        setAlgorithmDetails(id, name: name)
+        setAlgorithmDetails(id, name: name, type : type)
     }
     
-    convenience init(id : String, name : String, parameters : [Parameter]) {
-        self.init(id: id, name: name)
+    convenience init(id : String, name : String, type : DisplayInformation.DisplayAlgorithm, parameters : [Parameter]) {
+        self.init(id: id, name: name, type : type)
         setParameters(parameters)
     }
     
     // MARK: Setter Functions
-    func setAlgorithmDetails(id : String, name : String) {
+    func setAlgorithmDetails(id : String, name : String, type : DisplayInformation.DisplayAlgorithm) {
         _id = id
         _name = name
     }
     
-    func setAlgorithmDetails(id : String, name : String, parameters : [Parameter]) {
-        setAlgorithmDetails(id, name: name)
+    func setAlgorithmDetails(id : String, name : String, type : DisplayInformation.DisplayAlgorithm, parameters : [Parameter]) {
+        setAlgorithmDetails(id, name: name, type : type)
         setParameters(parameters)
     }
     
@@ -75,4 +83,5 @@ class Algorithm {
     func removeAllParameters() {
         _parameters.removeAll(keepCapacity: false)
     }
+    
 }

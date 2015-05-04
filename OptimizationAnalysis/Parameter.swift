@@ -9,10 +9,16 @@
 
 import Foundation
 
+enum ParameterDataType {
+    case Integer
+    case Boolean
+    case Float
+}
+
 class Parameter {
     
     // MARK: Public Declarations
-    var ident : String {
+    var ident : String? {
         get {
             return self._ident
         }
@@ -24,7 +30,7 @@ class Parameter {
         }
     }
     
-    var description: String {
+    var description: String? {
         get {
             return self._description
         }
@@ -42,31 +48,54 @@ class Parameter {
         }
     }
     
+    var dataType : ParameterDataType {
+        get {
+            return self._dataType
+        }
+    }
+    
+    var value : AnyObject?
+    
     // MARK: Private Declarations
     private var _ident = String()
     private var _name = String()
-    private var _description = String()
+    private var _description : String?
     private var _max = Double()
     private var _min = Double()
+    private var _dataType : ParameterDataType = .Integer // default Integer
+
     
     // MARK: Initializers
     init() {
         
     }
     
-    convenience init(ident : String, name : String, description : String, max : Double, min : Double) {
+    convenience init(ident : String, name : String, description : String?, max : Double, min : Double, dataType : ParameterDataType) {
         self.init()
-        setParameter(ident, name: name, description: description, max: max, min: min)
+        setParameter(ident, name: name, description: description, max: max, min: min, dataType: dataType)
     }
     
     // MARK: Setter Functions
-    func setParameter(ident : String, name : String, description : String, max : Double, min : Double) {
+    func setParameter(ident : String, name : String, description : String?, max : Double, min : Double, dataType : ParameterDataType) {
         self._ident = ident
         self._name = name
         self._description = description
         self._max = max
         self._min = min
+        self._dataType = dataType
     }
     
+    class func getDataTypeForString(type : String) -> ParameterDataType {
+        switch type {
+        case "Integer":
+            return .Integer
+        case "Float":
+            return .Float
+        case "Boolean":
+            return .Boolean
+        default:
+            return .Integer
+        }
+    }
     
 }

@@ -85,7 +85,7 @@ class SimulatedAnnealing {
             report.iterations.append(Iteration(bestM: report.bestM))
         }
         
-        report.algorithmName = DisplayInformation.Algorithm.SimulatedAnnealing.description
+        report.algorithmName = DisplayInformation.DisplayAlgorithm.SimulatedAnnealing.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
         report.dimension = Nd
         

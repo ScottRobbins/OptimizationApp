@@ -65,7 +65,7 @@ class HillClimbing {
             report.iterations.append(Iteration(bestM: report.bestM))
         }
         
-        report.algorithmName = DisplayInformation.Algorithm.HillClimbing.description
+        report.algorithmName = DisplayInformation.DisplayAlgorithm.HillClimbing.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
         report.dimension = Nd
         

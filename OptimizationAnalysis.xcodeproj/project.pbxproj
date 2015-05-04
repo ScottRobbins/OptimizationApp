@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5AE729724C2628DE5E9A5B6C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAA8E25BADBC04F690693EF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EC21CAC31AF0838E0093BB76 /* FitFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21CAC21AF0838E0093BB76 /* FitFunction.swift */; };
 		EC30CFC91AE5D7DA009C24D1 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFC81AE5D7DA009C24D1 /* Algorithm.swift */; };
 		EC30CFCB1AE5D82B009C24D1 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFCA1AE5D82B009C24D1 /* Parameter.swift */; };
 		EC30CFCD1AE5EB9B009C24D1 /* ApiAlgorithmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFCC1AE5EB9B009C24D1 /* ApiAlgorithmManager.swift */; };
+		EC30CFD01AE6AE28009C24D1 /* AppAlgorithmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFCF1AE6AE28009C24D1 /* AppAlgorithmManager.swift */; };
+		EC30CFD31AE6B1C0009C24D1 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC30CFD21AE6B1C0009C24D1 /* Environment.plist */; };
+		EC30CFD51AE6B38B009C24D1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFD41AE6B38B009C24D1 /* Environment.swift */; };
+		EC30CFD71AE8BFAA009C24D1 /* RunSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */; };
 		EC6CD6671AC3B34E003AD16C /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */; };
 		EC6CD6691AC3E564003AD16C /* GraphPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */; };
 		EC6CD66D1AC68BD6003AD16C /* GraphPickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */; };
@@ -58,9 +63,14 @@
 		4F3B5E688688503C4F6F0B21 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB15836E6FB68645D8E34EC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BDAA8E25BADBC04F690693EF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC21CAC21AF0838E0093BB76 /* FitFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitFunction.swift; sourceTree = "<group>"; };
 		EC30CFC81AE5D7DA009C24D1 /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
 		EC30CFCA1AE5D82B009C24D1 /* Parameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		EC30CFCC1AE5EB9B009C24D1 /* ApiAlgorithmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiAlgorithmManager.swift; sourceTree = "<group>"; };
+		EC30CFCF1AE6AE28009C24D1 /* AppAlgorithmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAlgorithmManager.swift; sourceTree = "<group>"; };
+		EC30CFD21AE6B1C0009C24D1 /* Environment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
+		EC30CFD41AE6B38B009C24D1 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunSelectionViewController.swift; sourceTree = "<group>"; };
 		EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerNavigationController.swift; sourceTree = "<group>"; };
@@ -137,6 +147,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC30CFCE1AE6AE08009C24D1 /* AlgorithmManagers */ = {
+			isa = PBXGroup;
+			children = (
+				EC30CFCC1AE5EB9B009C24D1 /* ApiAlgorithmManager.swift */,
+				ECC2F47F1A9811D000051078 /* AlgorithmManager.swift */,
+				EC30CFCF1AE6AE28009C24D1 /* AppAlgorithmManager.swift */,
+			);
+			name = AlgorithmManagers;
+			sourceTree = "<group>";
+		};
+		EC30CFD11AE6B189009C24D1 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				EC30CFD21AE6B1C0009C24D1 /* Environment.plist */,
+				EC30CFD41AE6B38B009C24D1 /* Environment.swift */,
+			);
+			name = Environment;
+			sourceTree = "<group>";
+		};
+		EC32405D1AF59F48003D16D8 /* Api Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC30CFC81AE5D7DA009C24D1 /* Algorithm.swift */,
+				EC30CFCA1AE5D82B009C24D1 /* Parameter.swift */,
+				EC21CAC21AF0838E0093BB76 /* FitFunction.swift */,
+			);
+			name = "Api Data Models";
+			sourceTree = "<group>";
+		};
+		EC32405E1AF59F70003D16D8 /* Report Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECB8E9C11ABA705800A24A7D /* Iteration.swift */,
+				ECC2F4811A9811D000051078 /* Report.swift */,
+				ECC2F4821A9811D000051078 /* AverageReport.swift */,
+			);
+			name = "Report Data Models";
+			sourceTree = "<group>";
+		};
 		ECC2F4371A9810EC00051078 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +211,7 @@
 			children = (
 				ECC2F4891A9811F800051078 /* Storyboard / Launch */,
 				ECC2F4651A98110100051078 /* View Controllers */,
+				EC30CFD11AE6B189009C24D1 /* Environment */,
 				ECC2F47E1A9811C800051078 /* Data Models */,
 				ECC2F47B1A98115100051078 /* Fit Functions */,
 				ECC2F46E1A98113000051078 /* Algorithms */,
@@ -204,6 +254,7 @@
 		ECC2F4651A98110100051078 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */,
 				ECC2F4661A98112300051078 /* AlgorithmPickerTableViewController.swift */,
 				ECC2F4671A98112300051078 /* FitFunctionPickerTableViewController.swift */,
 				ECC2F4681A98112300051078 /* ParameterSelectionViewController.swift */,
@@ -242,15 +293,11 @@
 		ECC2F47E1A9811C800051078 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				ECC2F47F1A9811D000051078 /* AlgorithmManager.swift */,
+				EC32405E1AF59F70003D16D8 /* Report Data Models */,
+				EC32405D1AF59F48003D16D8 /* Api Data Models */,
+				EC30CFCE1AE6AE08009C24D1 /* AlgorithmManagers */,
 				ECC2F4801A9811D000051078 /* DisplayInformation.swift */,
-				ECC2F4811A9811D000051078 /* Report.swift */,
-				ECC2F4821A9811D000051078 /* AverageReport.swift */,
-				ECB8E9C11ABA705800A24A7D /* Iteration.swift */,
 				EC6CD66E1AC92765003AD16C /* Bar.swift */,
-				EC30CFC81AE5D7DA009C24D1 /* Algorithm.swift */,
-				EC30CFCA1AE5D82B009C24D1 /* Parameter.swift */,
-				EC30CFCC1AE5EB9B009C24D1 /* ApiAlgorithmManager.swift */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -347,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC30CFD31AE6B1C0009C24D1 /* Environment.plist in Resources */,
 				ECC2F48B1A98133200051078 /* Main.storyboard in Resources */,
 				ECC2F4501A9810EC00051078 /* LaunchScreen.xib in Resources */,
 				ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */,
@@ -416,9 +464,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB8E9CE1ABA9E5A00A24A7D /* ChartViewToolTipView.swift in Sources */,
+				EC30CFD51AE6B38B009C24D1 /* Environment.swift in Sources */,
 				EC6CD66D1AC68BD6003AD16C /* GraphPickerNavigationController.swift in Sources */,
 				ECC2F4781A98113F00051078 /* SteepestAscentHillClimbingWithRandomRestarts.swift in Sources */,
 				ECB8E9D01ABAA16D00A24A7D /* BaseChartViewController.swift in Sources */,
+				EC30CFD71AE8BFAA009C24D1 /* RunSelectionViewController.swift in Sources */,
 				EC6CD6671AC3B34E003AD16C /* ResultTableViewController.swift in Sources */,
 				ECC2F46B1A98112300051078 /* FitFunctionPickerTableViewController.swift in Sources */,
 				ECC2F4461A9810EC00051078 /* AppDelegate.swift in Sources */,
@@ -438,7 +488,9 @@
 				EC6CD66F1AC92765003AD16C /* Bar.swift in Sources */,
 				EC30CFC91AE5D7DA009C24D1 /* Algorithm.swift in Sources */,
 				EC30CFCB1AE5D82B009C24D1 /* Parameter.swift in Sources */,
+				EC21CAC31AF0838E0093BB76 /* FitFunction.swift in Sources */,
 				ECB8E9D21ABAA35700A24A7D /* ChartViewToolTipTipView.swift in Sources */,
+				EC30CFD01AE6AE28009C24D1 /* AppAlgorithmManager.swift in Sources */,
 				ECC2F4831A9811D000051078 /* AlgorithmManager.swift in Sources */,
 				ECC2F4851A9811D000051078 /* Report.swift in Sources */,
 				ECC2F4771A98113F00051078 /* SteepestAscentHillClimbingWithReplacement.swift in Sources */,
@@ -569,6 +621,7 @@
 				);
 				INFOPLIST_FILE = OptimizationAnalysis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OptimizationAnalysis/OptimizationAnalysis-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
