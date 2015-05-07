@@ -17,12 +17,12 @@
 		EC30CFD51AE6B38B009C24D1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFD41AE6B38B009C24D1 /* Environment.swift */; };
 		EC30CFD71AE8BFAA009C24D1 /* RunSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */; };
 		EC40EBA21AFB1F0E00F9858E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA11AFB1F0E00F9858E /* Launch Screen.xib */; };
-		EC40EBAA1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA41AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png */; };
-		EC40EBAB1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA51AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png */; };
-		EC40EBAC1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA61AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png */; };
-		EC40EBAD1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA71AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png */; };
-		EC40EBAE1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA81AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png */; };
-		EC40EBAF1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA91AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png */; };
+		EC40EBB61AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBB01AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png */; };
+		EC40EBB71AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBB11AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png */; };
+		EC40EBB81AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBB21AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png */; };
+		EC40EBB91AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBB31AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png */; };
+		EC40EBBA1AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBB41AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png */; };
+		EC40EBBB1AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBB51AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png */; };
 		EC6CD6671AC3B34E003AD16C /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */; };
 		EC6CD6691AC3E564003AD16C /* GraphPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */; };
 		EC6CD66D1AC68BD6003AD16C /* GraphPickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */; };
@@ -79,12 +79,12 @@
 		EC30CFD41AE6B38B009C24D1 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunSelectionViewController.swift; sourceTree = "<group>"; };
 		EC40EBA11AFB1F0E00F9858E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
-		EC40EBA41AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png"; path = "../../../Desktop/iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png"; sourceTree = "<group>"; };
-		EC40EBA51AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png"; path = "../../../Desktop/iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png"; sourceTree = "<group>"; };
-		EC40EBA61AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png"; path = "../../../Desktop/iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png"; sourceTree = "<group>"; };
-		EC40EBA71AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png"; path = "../../../Desktop/iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png"; sourceTree = "<group>"; };
-		EC40EBA81AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png"; path = "../../../Desktop/iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png"; sourceTree = "<group>"; };
-		EC40EBA91AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png"; path = "../../../Desktop/iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png"; sourceTree = "<group>"; };
+		EC40EBB01AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png"; sourceTree = "<group>"; };
+		EC40EBB11AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png"; sourceTree = "<group>"; };
+		EC40EBB21AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png"; sourceTree = "<group>"; };
+		EC40EBB31AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png"; sourceTree = "<group>"; };
+		EC40EBB41AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png"; sourceTree = "<group>"; };
+		EC40EBB51AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png"; sourceTree = "<group>"; };
 		EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerNavigationController.swift; sourceTree = "<group>"; };
@@ -204,12 +204,12 @@
 		EC40EBA31AFB30BF00F9858E /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				EC40EBA41AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png */,
-				EC40EBA51AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png */,
-				EC40EBA61AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png */,
-				EC40EBA71AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png */,
-				EC40EBA81AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png */,
-				EC40EBA91AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png */,
+				EC40EBB01AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png */,
+				EC40EBB11AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png */,
+				EC40EBB21AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png */,
+				EC40EBB31AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png */,
+				EC40EBB41AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png */,
+				EC40EBB51AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png */,
 			);
 			name = Screenshots;
 			sourceTree = "<group>";
@@ -425,14 +425,14 @@
 			files = (
 				EC30CFD31AE6B1C0009C24D1 /* Environment.plist in Resources */,
 				EC40EBA21AFB1F0E00F9858E /* Launch Screen.xib in Resources */,
-				EC40EBAB1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png in Resources */,
-				EC40EBAA1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png in Resources */,
-				EC40EBAC1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png in Resources */,
-				EC40EBAD1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png in Resources */,
-				EC40EBAF1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png in Resources */,
+				EC40EBB71AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.02 AM.png in Resources */,
+				EC40EBB61AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.33.16 AM.png in Resources */,
+				EC40EBB81AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.56 AM.png in Resources */,
+				EC40EBB91AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.15 AM.png in Resources */,
+				EC40EBBB1AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.31.51 AM.png in Resources */,
 				ECC2F48B1A98133200051078 /* Main.storyboard in Resources */,
 				ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */,
-				EC40EBAE1AFB30E100F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png in Resources */,
+				EC40EBBA1AFB342400F9858E /* iOS Simulator Screen Shot May 7, 2015, 1.32.05 AM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
