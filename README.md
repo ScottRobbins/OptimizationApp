@@ -20,4 +20,10 @@ Scott Robbins - ssrobbi@bgsu.edu
 * Pick the type of algorithm you would like to run, the fit function to use and fill in the parameters how you'd like
 * Click `Run` and when your algorithms are done executing, you will be moved to the **Results** screen, where you can view your results and select graphs to view
 
-###Examples
+###Example
+<img src="https://github.com/ScottRobbins/OptimizationApp/blob/master/OptimizationAnalysis/iOS%20Simulator%20Screen%20Shot%20May%207%2C%202015%2C%201.31.51%20AM.png" alt="Choose How To Run" width="200" float="left"/>
+<img src="https://github.com/ScottRobbins/OptimizationApp/blob/master/OptimizationAnalysis/iOS%20Simulator%20Screen%20Shot%20May%207%2C%202015%2C%201.32.05%20AM.png" alt="Choose Algorithm" width="200" float="left"/>
+<img src="https://github.com/ScottRobbins/OptimizationApp/blob/master/OptimizationAnalysis/iOS%20Simulator%20Screen%20Shot%20May%207%2C%202015%2C%201.32.15%20AM.png" alt="Choose Algorithm" width="200" float="left"/>
+<img src="https://github.com/ScottRobbins/OptimizationApp/blob/master/OptimizationAnalysis/iOS%20Simulator%20Screen%20Shot%20May%207%2C%202015%2C%201.32.56%20AM.png" alt="Choose Algorithm" width="200" float="left"/>
+<img src="https://github.com/ScottRobbins/OptimizationApp/blob/master/OptimizationAnalysis/iOS%20Simulator%20Screen%20Shot%20May%207%2C%202015%2C%201.33.02%20AM.png" alt="Choose Algorithm" width="200" float="left"/>
+<img src="https://github.com/ScottRobbins/OptimizationApp/blob/master/OptimizationAnalysis/iOS%20Simulator%20Screen%20Shot%20May%207%2C%202015%2C%201.33.16%20AM.png" alt="Choose Algorithm" width="200" float="left"/>
