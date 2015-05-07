@@ -22,7 +22,6 @@ class TabuSearch {
         upperBound : Int,
         lowerChange : Int,
         upperChange : Int,
-        maxTabuListLength : Int,
         numTweaks : Int,
         getDataset : (Int, Int, Int) -> [Double], // should encompass some randomness
         tweak : ([Double], Int, Int, Int, Int) -> [Double]?) // R, lowerChange, upperChange, lowerBound, upperBound
@@ -38,6 +37,8 @@ class TabuSearch {
         var report = Report()
         var tabuList = [Double]()
         var newM = 0.0, wM = 0.0, M = 0.0, bestM = 0.0
+        var maxTabuListLength = 100 // TODO: Should verify what this default is
+        
         report.bestSolution = R
         if let temp = fitFunc(R) {
             report.bestM = temp
@@ -117,7 +118,6 @@ class TabuSearch {
         upperBound : Int,
         lowerChange : Int,
         upperChange : Int,
-        maxTabuListLength : Int,
         numTweaks : Int,
         getDataset : (Int, Int, Int) -> [Double], // should encompass some randomness
         tweak : ([Double], Int, Int, Int, Int) -> [Double]?,
@@ -131,7 +131,7 @@ class TabuSearch {
         var sumM = 0.0, sumComputationTime = 0.0, sumMStdDev = 0.0, sumComputationTimeStdDev = 0.0
         
         for _ in 0..<runNTimes {
-            if let tempReport = tabuSearch(fitFunc, Nd: Nd, Nt: Nt, lowerBound: lowerBound, upperBound: upperBound, lowerChange: lowerChange, upperChange: upperChange, maxTabuListLength: maxTabuListLength, numTweaks: numTweaks, getDataset: getDataset, tweak: tweak) {
+            if let tempReport = tabuSearch(fitFunc, Nd: Nd, Nt: Nt, lowerBound: lowerBound, upperBound: upperBound, lowerChange: lowerChange, upperChange: upperChange, numTweaks: numTweaks, getDataset: getDataset, tweak: tweak) {
                 
                 report = tempReport
             } else { return nil }

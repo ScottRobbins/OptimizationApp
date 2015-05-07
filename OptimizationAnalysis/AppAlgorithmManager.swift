@@ -66,14 +66,11 @@ class AppAlgorithmManager : AlgorithmManager {
             var _lowerVelocity = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.lowerVelocity.description})
             var _upperVelocity = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.upperVelocity.description})
             var _numTweeks = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.NumberOfTweaks.description})
-            var _numRandTimes = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.NumberOfRandomTimes.description})
             var _numParticles = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.NumberOfParticles.description})
-            var _upperBoundRandTimes = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.UpperBoundForRandomTimes.description})
             var _tempModifier = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.TempModifier.description})
             var _weight = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.weight.description})
             var _c1 = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.learningFactor1.description})
             var _c2 = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.learningFactor2.description})
-            var _maxTabuListLength = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.MaxTabuListLength.description})
             var _runNTimes = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.RunNTimes.description})
             
             var Nd: Int? = _Nd.count > 0 ? _Nd[0].value as? Int : nil
@@ -85,14 +82,11 @@ class AppAlgorithmManager : AlgorithmManager {
             var lowerVelocity: Double? = _lowerVelocity.count > 0 ? _lowerVelocity[0].value as? Double : nil
             var upperVelocity: Double? = _upperVelocity.count > 0 ? _upperVelocity[0].value as? Double : nil
             var numTweaks: Int? = _numTweeks.count > 0 ? _numTweeks[0].value as? Int : nil
-            var numRandTimes: Int? = _numRandTimes.count > 0 ? _numRandTimes[0].value as? Int : nil
             var numParticles: Int? = _numParticles.count > 0 ? _numParticles[0].value as? Int : nil
-            var upperBoundRandTimes: Int? = _upperBoundRandTimes.count > 0 ? _upperBoundRandTimes[0].value as? Int : nil
             var tempModifier: Int? = _tempModifier.count > 0 ? _tempModifier[0].value as? Int : nil
             var weight: Int? = _weight.count > 0 ? _weight[0].value as? Int : nil
             var c1: Double? = _c1.count > 0 ? _c1[0].value as? Double : nil
             var c2: Double? = _c2.count > 0 ? _c2[0].value as? Double : nil
-            var maxTabuListLength: Int? = _maxTabuListLength.count > 0 ? _maxTabuListLength[0].value as? Int : nil
             var runNTimes: Int? = _runNTimes.count > 0 ? _runNTimes[0].value as? Int : nil
             
             var report = Report?()
@@ -115,7 +109,7 @@ class AppAlgorithmManager : AlgorithmManager {
                 report = SimulatedAnnealing.simulatedAnnealing(fitFunc, Nd: Nd!, Nt: Nt!, lowerBound: lowerBound!, upperBound: upperBound!, lowerChange: lowerChange!, upperChange: upperChange!, tempModifier: tempModifier!, getDataset: AppAlgorithmManager.getDataset, tweak: AppAlgorithmManager.tweak)
                 
             case .TabuSearch:
-                report = TabuSearch.tabuSearch(fitFunc, Nd: Nd!, Nt: Nt!, lowerBound: lowerBound!, upperBound: upperBound!, lowerChange: lowerChange!, upperChange: upperChange!, maxTabuListLength: maxTabuListLength!, numTweaks: numTweaks!, getDataset: AppAlgorithmManager.getDataset, tweak: AppAlgorithmManager.tweak)
+                report = TabuSearch.tabuSearch(fitFunc, Nd: Nd!, Nt: Nt!, lowerBound: lowerBound!, upperBound: upperBound!, lowerChange: lowerChange!, upperChange: upperChange!, numTweaks: numTweaks!, getDataset: AppAlgorithmManager.getDataset, tweak: AppAlgorithmManager.tweak)
             case .ParticalSwarm:
                 report = ParticalSwarm.particalSwarm(fitFunc, Nd: Nd!, Nt: Nt!, Np: numParticles!, weight: weight!, lowerVelocity: lowerVelocity!, upperVelocity: upperVelocity!, c1: c1!, c2: c2!, lowerBound: lowerBound!, upperBound: upperBound!, getDataset: AppAlgorithmManager.getDatasetForPSO, getVelocities: AppAlgorithmManager.getVelocities)
             default:
@@ -146,14 +140,11 @@ class AppAlgorithmManager : AlgorithmManager {
             var _lowerVelocity = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.lowerVelocity.description})
             var _upperVelocity = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.upperVelocity.description})
             var _numTweeks = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.NumberOfTweaks.description})
-            var _numRandTimes = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.NumberOfRandomTimes.description})
             var _numParticles = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.NumberOfParticles.description})
-            var _upperBoundRandTimes = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.UpperBoundForRandomTimes.description})
             var _tempModifier = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.TempModifier.description})
             var _weight = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.weight.description})
             var _c1 = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.learningFactor1.description})
             var _c2 = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.learningFactor2.description})
-            var _maxTabuListLength = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.MaxTabuListLength.description})
             var _runNTimes = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.RunNTimes.description})
             
             var Nd: Int? = _Nd.count > 0 ? _Nd[0].value as? Int : nil
@@ -165,14 +156,11 @@ class AppAlgorithmManager : AlgorithmManager {
             var lowerVelocity: Double? = _lowerVelocity.count > 0 ? _lowerVelocity[0].value as? Double : nil
             var upperVelocity: Double? = _upperVelocity.count > 0 ? _upperVelocity[0].value as? Double : nil
             var numTweaks: Int? = _numTweeks.count > 0 ? _numTweeks[0].value as? Int : nil
-            var numRandTimes: Int? = _numRandTimes.count > 0 ? _numRandTimes[0].value as? Int : nil
             var numParticles: Int? = _numParticles.count > 0 ? _numParticles[0].value as? Int : nil
-            var upperBoundRandTimes: Int? = _upperBoundRandTimes.count > 0 ? _upperBoundRandTimes[0].value as? Int : nil
             var tempModifier: Int? = _tempModifier.count > 0 ? _tempModifier[0].value as? Int : nil
             var weight: Int? = _weight.count > 0 ? _weight[0].value as? Int : nil
             var c1: Double? = _c1.count > 0 ? _c1[0].value as? Double : nil
             var c2: Double? = _c2.count > 0 ? _c2[0].value as? Double : nil
-            var maxTabuListLength: Int? = _maxTabuListLength.count > 0 ? _maxTabuListLength[0].value as? Int : nil
             var runNTimes: Int? = _runNTimes.count > 0 ? _runNTimes[0].value as? Int : nil
             
             var report = AverageReport?()
@@ -195,7 +183,7 @@ class AppAlgorithmManager : AlgorithmManager {
                 report = SimulatedAnnealing.simulatedAnnealing(fitFunc, Nd: Nd!, Nt: Nt!, lowerBound: lowerBound!, upperBound: upperBound!, lowerChange: lowerChange!, upperChange: upperChange!, tempModifier: tempModifier!, getDataset: AppAlgorithmManager.getDataset, tweak: AppAlgorithmManager.tweak, runNTimes: runNTimes!)
                 
             case .TabuSearch:
-                report = TabuSearch.tabuSearch(fitFunc, Nd: Nd!, Nt: Nt!, lowerBound: lowerBound!, upperBound: upperBound!, lowerChange: lowerChange!, upperChange: upperChange!, maxTabuListLength: maxTabuListLength!, numTweaks: numTweaks!, getDataset: AppAlgorithmManager.getDataset, tweak: AppAlgorithmManager.tweak, runNTimes: runNTimes!)
+                report = TabuSearch.tabuSearch(fitFunc, Nd: Nd!, Nt: Nt!, lowerBound: lowerBound!, upperBound: upperBound!, lowerChange: lowerChange!, upperChange: upperChange!, numTweaks: numTweaks!, getDataset: AppAlgorithmManager.getDataset, tweak: AppAlgorithmManager.tweak, runNTimes: runNTimes!)
             case .ParticalSwarm:
                 report = ParticalSwarm.particalSwarm(fitFunc, Nd: Nd!, Nt: Nt!, Np: numParticles!, weight: weight!, lowerVelocity: lowerVelocity!, upperVelocity: upperVelocity!, c1: c1!, c2: c2!, lowerBound: lowerBound!, upperBound: upperBound!, getDataset: AppAlgorithmManager.getDatasetForPSO, getVelocities: AppAlgorithmManager.getVelocities, runNTimes: runNTimes!)
                 

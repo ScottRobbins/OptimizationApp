@@ -61,6 +61,7 @@ class Algorithm {
     func setAlgorithmDetails(id : String, name : String, type : DisplayInformation.DisplayAlgorithm) {
         _id = id
         _name = name
+        _algorithmType = type
     }
     
     func setAlgorithmDetails(id : String, name : String, type : DisplayInformation.DisplayAlgorithm, parameters : [Parameter]) {

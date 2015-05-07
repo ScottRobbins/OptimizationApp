@@ -91,17 +91,14 @@ class DisplayInformation {
         case lowerVelocity = "Lower Velocity"
         case upperVelocity = "Upper Velocity"
         case NumberOfTweaks = "Number of Tweaks"
-        case NumberOfRandomTimes = "Number of Random Times"
         case NumberOfParticles = "Number of Particles"
-        case UpperBoundForRandomTimes = "Upper Bound For Random Times"
         case TempModifier = "Temporary Modifier"
         case weight = "Weight"
         case learningFactor1 = "Learning Factor 1"
         case learningFactor2 = "Learning Factory 2"
-        case MaxTabuListLength = "Max Tabu List Length"
         case RunNTimes = "Number of times to run"
         
-        static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, lowerVelocity, upperVelocity, NumberOfTweaks, NumberOfRandomTimes, NumberOfParticles, UpperBoundForRandomTimes, TempModifier, weight, MaxTabuListLength, RunNTimes]
+        static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, lowerVelocity, upperVelocity, NumberOfTweaks, NumberOfParticles, TempModifier, weight, RunNTimes]
         
         var description : String {
             get {
@@ -120,17 +117,14 @@ class DisplayInformation {
         case lowerVelocity = "minVelocity"
         case upperVelocity = "maxVelocity"
         case NumberOfTweaks = "numTweaks"
-        case NumberOfRandomTimes = "numTimes" // TODO: Change with Random Restarts
         case NumberOfParticles = "numParticles"
-        case UpperBoundForRandomTimes = "maxRandomTimes" // TODO: Chagnew ith Random restarts
-        case TempModifier = "tModifier"
+        case TempModifier = "tempModifier"
         case weight = "inertiaWeight"
         case learningFactor1 = "cognitiveWeight"
         case learningFactor2 = "socialWeight"
-        case MaxTabuListLength = "maxTabuListLength" // TODO: Change with tabu list
         case RunNTimes = "numRuns"
         
-        static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, lowerVelocity, upperVelocity, NumberOfTweaks, NumberOfRandomTimes, NumberOfParticles, UpperBoundForRandomTimes, TempModifier, weight, MaxTabuListLength, RunNTimes]
+        static let allValues = [Dimension, Iterations, LowerBound, UpperBound, LowerChange, UpperChange, lowerVelocity, upperVelocity, NumberOfTweaks, NumberOfParticles, TempModifier, weight, RunNTimes]
         
         var description : String {
             get {
@@ -236,11 +230,11 @@ class DisplayInformation {
         case .SteepestAscentHillClimbingWithReplacement:
             parameters += [.LowerChange, .UpperChange, .NumberOfTweaks]
         case .SteepestAscentHillClimbingWithRandomRestarts:
-            parameters += [.LowerChange, .UpperChange, .NumberOfRandomTimes, .UpperBoundForRandomTimes]
+            parameters += [.LowerChange, .UpperChange]
         case .SimulatedAnnealing:
             parameters += [.LowerChange, .UpperChange, .TempModifier]
         case .TabuSearch:
-            parameters += [.LowerChange, .UpperChange, .NumberOfTweaks, .MaxTabuListLength]
+            parameters += [.LowerChange, .UpperChange, .NumberOfTweaks]
         case .ParticalSwarm:
             parameters += [.NumberOfParticles, .lowerVelocity, .upperVelocity, .weight, .learningFactor1, .learningFactor2]
         }
@@ -270,22 +264,16 @@ class DisplayInformation {
             return Parameter(ident: DisplayInformation.DisplayParameterIdent.upperVelocity.description, name: displayParameter.description, description: nil, max: 1000, min: 0, dataType: .Float)
         case .NumberOfTweaks:
             return Parameter(ident: DisplayInformation.DisplayParameterIdent.NumberOfTweaks.description, name: displayParameter.description, description: nil, max: 10, min: 0, dataType: .Integer)
-        case .NumberOfRandomTimes:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.NumberOfRandomTimes.description, name: displayParameter.description, description: nil, max: 100, min: 1, dataType: .Integer)
         case .NumberOfParticles:
             return Parameter(ident: DisplayInformation.DisplayParameterIdent.NumberOfParticles.description, name: displayParameter.description, description: nil, max: 1000, min: 1, dataType: .Integer)
-        case .UpperBoundForRandomTimes:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.UpperBoundForRandomTimes.description, name: displayParameter.description, description: nil, max: 100, min: 1, dataType: .Integer) // TODO: Change for random restarts
         case .TempModifier:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.TempModifier.description, name: displayParameter.description, description: nil, max: 5, min: 0, dataType: .Integer) // TODO: Change for simulated annealing restarts
+            return Parameter(ident: DisplayInformation.DisplayParameterIdent.TempModifier.description, name: displayParameter.description, description: nil, max: 100, min: -100, dataType: .Float)
         case .weight:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.weight.description, name: displayParameter.description, description: nil, max: 5, min: -5, dataType: .Integer) // TODO: Change for partical swarm change
+            return Parameter(ident: DisplayInformation.DisplayParameterIdent.weight.description, name: displayParameter.description, description: nil, max: 1000, min: 0, dataType: .Float)
         case .learningFactor1:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.learningFactor1.description, name: displayParameter.description, description: nil, max: 1000, min: 0, dataType: .Float) // TODO: Change for random restarts
+            return Parameter(ident: DisplayInformation.DisplayParameterIdent.learningFactor1.description, name: displayParameter.description, description: nil, max: 1000, min: 0, dataType: .Float)
         case .learningFactor2:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.learningFactor2.description, name: displayParameter.description, description: nil, max: 1000, min: 0, dataType: .Float) // TODO: Change for random restarts
-        case .MaxTabuListLength:
-            return Parameter(ident: DisplayInformation.DisplayParameterIdent.MaxTabuListLength.description, name: displayParameter.description, description: nil, max: 1000, min: 1, dataType: .Integer) // TODO: Change for tabu list
+            return Parameter(ident: DisplayInformation.DisplayParameterIdent.learningFactor2.description, name: displayParameter.description, description: nil, max: 1000, min: 0, dataType: .Float) 
         case .RunNTimes:
             return Parameter(ident: DisplayInformation.DisplayParameterIdent.RunNTimes.description, name: displayParameter.description, description: nil, max: 1000, min: 1, dataType: .Integer)
         }
