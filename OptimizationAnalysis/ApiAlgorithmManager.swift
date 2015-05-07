@@ -9,6 +9,11 @@
 import Foundation
 import Alamofire
 
+// MARK: Protocols
+protocol ApiAlgorithmManagerDelegate: class {
+    func apiReportFinished(report : ApiReport?)
+}
+
 class ApiAlgorithmManager : AlgorithmManager {
 
     // MARK: Public Declarations
@@ -25,6 +30,8 @@ class ApiAlgorithmManager : AlgorithmManager {
     }
     
     var fitFunction = FitFunction()
+    var lastRunApiReport : ApiReport?
+    var delegate : ApiAlgorithmManagerDelegate?
     
     // MARK: Private Declarations
     private var _apiAlgorithms = [Algorithm]()
@@ -115,16 +122,20 @@ class ApiAlgorithmManager : AlgorithmManager {
     func runAlgorithm() {
         let _apiString = Environment.apiString
         let parameters = buildParametersJSONForAlgorithm()
-        
-        switch _apiString {
-        case .Success(let apiString):
-            Alamofire.request(.POST, "\(apiString)/execute", parameters: parameters, encoding: .JSON)
-                .responseJSON { (_, _, JSON, _) in
-                    self.parseAlgorithmResponseJSON(JSON)
+        if let numRuns = algorithm.parameters.filter({$0.ident == DisplayInformation.DisplayParameterIdent.RunNTimes.description})[0].value as? Int {
+            switch _apiString {
+            case .Success(let apiString):
+                var startTime = NSDate()
+                Alamofire.request(.POST, "\(apiString)/execute", parameters: parameters, encoding: .JSON)
+                    .responseJSON { (_, _, JSON, _) in
+                        self.lastRunApiReport = self.parseAlgorithmResponseJSON(JSON, numRuns: numRuns)
+                        self.lastRunApiReport?.roundTripTime = startTime.timeIntervalSinceNow * -1_000
+                        self.delegate?.apiReportFinished(self.lastRunApiReport)
+                }
+            case .Failure(let exception):
+                // Programming error: Danger Will Robinson, Danger!
+                NSException(name: "Api String Not Found Exception", reason: "Api string could not be found in plist", userInfo: nil).raise()
             }
-        case .Failure(let exception):
-            // Programming error: Danger Will Robinson, Danger!
-            NSException(name: "Api String Not Found Exception", reason: "Api string could not be found in plist", userInfo: nil).raise()
         }
     }
     
@@ -147,8 +158,25 @@ class ApiAlgorithmManager : AlgorithmManager {
         return jsonDict
     }
     
-    private func parseAlgorithmResponseJSON(JSON : AnyObject?) {
+    private func parseAlgorithmResponseJSON(JSON : AnyObject?, numRuns : Int) -> ApiReport? {
+        var report = ApiReport()
+        if let resultDict = JSON as? [String : AnyObject] {
+            if let algorithmName = resultDict["algorithm"] as? String, let fitnessFunction = resultDict["fitnessFunction"] as? String, result = resultDict["result"] as? [String : Double] {
+                report.algorithmName = algorithmName
+                report.fitFunctionName = fitnessFunction
+                
+                if let bestM = result["averageSolution"], let averageTime = result["averageTime"], let solutionStdDev = result["solutionStdDev"], let timeStdDev = result["timeStdDev"] {
+                    report.bestM = bestM
+                    report.computationTime = averageTime
+                    report.stdDevBestM = solutionStdDev
+                    report.stdDevComputationTime = timeStdDev
+                    
+                    return report
+                }
+            }
+        }
         
+        return nil
     }
     
     private func getAlgorithmTypeForString(idString : String) -> DisplayInformation.DisplayAlgorithm? {

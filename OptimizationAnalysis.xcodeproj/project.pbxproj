@@ -16,6 +16,7 @@
 		EC30CFD31AE6B1C0009C24D1 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC30CFD21AE6B1C0009C24D1 /* Environment.plist */; };
 		EC30CFD51AE6B38B009C24D1 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFD41AE6B38B009C24D1 /* Environment.swift */; };
 		EC30CFD71AE8BFAA009C24D1 /* RunSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */; };
+		EC40EBA21AFB1F0E00F9858E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC40EBA11AFB1F0E00F9858E /* Launch Screen.xib */; };
 		EC6CD6671AC3B34E003AD16C /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */; };
 		EC6CD6691AC3E564003AD16C /* GraphPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */; };
 		EC6CD66D1AC68BD6003AD16C /* GraphPickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */; };
@@ -25,10 +26,10 @@
 		ECB8E9CE1ABA9E5A00A24A7D /* ChartViewToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9CD1ABA9E5A00A24A7D /* ChartViewToolTipView.swift */; };
 		ECB8E9D01ABAA16D00A24A7D /* BaseChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9CF1ABAA16D00A24A7D /* BaseChartViewController.swift */; };
 		ECB8E9D21ABAA35700A24A7D /* ChartViewToolTipTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8E9D11ABAA35700A24A7D /* ChartViewToolTipTipView.swift */; };
+		ECC1485E1AF9D25900862247 /* ApiReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1485D1AF9D25900862247 /* ApiReport.swift */; };
 		ECC2BA181AD4B16F00F609CE /* ParticalSwarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2BA171AD4B16F00F609CE /* ParticalSwarm.swift */; };
 		ECC2F4461A9810EC00051078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4451A9810EC00051078 /* AppDelegate.swift */; };
 		ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F44C1A9810EC00051078 /* Images.xcassets */; };
-		ECC2F4501A9810EC00051078 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */; };
 		ECC2F45C1A9810EC00051078 /* OptimizationAnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F45B1A9810EC00051078 /* OptimizationAnalysisTests.swift */; };
 		ECC2F46A1A98112300051078 /* AlgorithmPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4661A98112300051078 /* AlgorithmPickerTableViewController.swift */; };
 		ECC2F46B1A98112300051078 /* FitFunctionPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC2F4671A98112300051078 /* FitFunctionPickerTableViewController.swift */; };
@@ -71,6 +72,7 @@
 		EC30CFD21AE6B1C0009C24D1 /* Environment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		EC30CFD41AE6B38B009C24D1 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		EC30CFD61AE8BFAA009C24D1 /* RunSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunSelectionViewController.swift; sourceTree = "<group>"; };
+		EC40EBA11AFB1F0E00F9858E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		EC6CD6661AC3B34E003AD16C /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD6681AC3E564003AD16C /* GraphPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerTableViewController.swift; sourceTree = "<group>"; };
 		EC6CD66C1AC68BD6003AD16C /* GraphPickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPickerNavigationController.swift; sourceTree = "<group>"; };
@@ -80,12 +82,12 @@
 		ECB8E9CD1ABA9E5A00A24A7D /* ChartViewToolTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewToolTipView.swift; sourceTree = "<group>"; };
 		ECB8E9CF1ABAA16D00A24A7D /* BaseChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartViewController.swift; sourceTree = "<group>"; };
 		ECB8E9D11ABAA35700A24A7D /* ChartViewToolTipTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewToolTipTipView.swift; sourceTree = "<group>"; };
+		ECC1485D1AF9D25900862247 /* ApiReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiReport.swift; sourceTree = "<group>"; };
 		ECC2BA171AD4B16F00F609CE /* ParticalSwarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticalSwarm.swift; sourceTree = "<group>"; };
 		ECC2F4401A9810EC00051078 /* OptimizationAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OptimizationAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC2F4441A9810EC00051078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC2F4451A9810EC00051078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC2F44C1A9810EC00051078 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		ECC2F44F1A9810EC00051078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ECC2F4551A9810EC00051078 /* OptimizationAnalysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OptimizationAnalysisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC2F45A1A9810EC00051078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC2F45B1A9810EC00051078 /* OptimizationAnalysisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationAnalysisTests.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				ECB8E9C11ABA705800A24A7D /* Iteration.swift */,
 				ECC2F4811A9811D000051078 /* Report.swift */,
 				ECC2F4821A9811D000051078 /* AverageReport.swift */,
+				ECC1485D1AF9D25900862247 /* ApiReport.swift */,
 			);
 			name = "Report Data Models";
 			sourceTree = "<group>";
@@ -306,7 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC2F48A1A98133200051078 /* Main.storyboard */,
-				ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */,
+				EC40EBA11AFB1F0E00F9858E /* Launch Screen.xib */,
 			);
 			name = "Storyboard / Launch";
 			sourceTree = "<group>";
@@ -395,8 +398,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC30CFD31AE6B1C0009C24D1 /* Environment.plist in Resources */,
+				EC40EBA21AFB1F0E00F9858E /* Launch Screen.xib in Resources */,
 				ECC2F48B1A98133200051078 /* Main.storyboard in Resources */,
-				ECC2F4501A9810EC00051078 /* LaunchScreen.xib in Resources */,
 				ECC2F44D1A9810EC00051078 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +479,7 @@
 				ECB8E9C61ABA7F8700A24A7D /* LineChartViewController.swift in Sources */,
 				ECC2F46A1A98112300051078 /* AlgorithmPickerTableViewController.swift in Sources */,
 				ECC2F4861A9811D000051078 /* AverageReport.swift in Sources */,
+				ECC1485E1AF9D25900862247 /* ApiReport.swift in Sources */,
 				ECC2F4791A98113F00051078 /* SimulatedAnnealing.swift in Sources */,
 				ECC2F46C1A98112300051078 /* ParameterSelectionViewController.swift in Sources */,
 				ECC2F46D1A98112300051078 /* BarChartViewController.swift in Sources */,
@@ -517,17 +521,6 @@
 			targetProxy = ECC2F4561A9810EC00051078 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		ECC2F44E1A9810EC00051078 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECC2F44F1A9810EC00051078 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ECC2F45D1A9810EC00051078 /* Debug */ = {
@@ -620,6 +613,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
 				);
 				INFOPLIST_FILE = OptimizationAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -639,9 +633,11 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
 				);
 				INFOPLIST_FILE = OptimizationAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OptimizationAnalysis/OptimizationAnalysis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};

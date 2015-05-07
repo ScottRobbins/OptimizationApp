@@ -13,11 +13,16 @@ enum GraphType {
     case Line
 }
 
-class ResultTableViewController: UITableViewController, GrapherPickerTableViewControllerDelegate {
+class ResultTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GrapherPickerTableViewControllerDelegate {
     
-    var singleReport : Report? = nil
-    var averageReport : AverageReport? = nil
-    var reportType = ReportType.Single // default
+    var singleReport : Report?
+    var averageReport : AverageReport?
+    var apiReport : ApiReport?
+    var reportOneType = ReportType.Single // default
+    var reportTwoType : ReportType?
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
     
     private let kShowGraphsViewController = "kShowGraphPickerViewController"
     private let kShowLineChartViewController = "kShowLineChartViewController"
@@ -26,35 +31,44 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Report"
         self.view.backgroundColor = UIColor.darkGrayColor()
         
         var graphIconButton = UIButton(frame: CGRectMake(0, 0, 36, 36))
         graphIconButton.setImage(UIImage(named: "graphIconDarkGrey.png"), forState: .Normal)
         graphIconButton.addTarget(self, action: "graphIconPressed", forControlEvents: .TouchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: graphIconButton)
+        
+        if reportTwoType == nil {
+            segmentedControl.removeFromSuperview()
+        }
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch reportType {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var reportType = segmentedControl.selectedSegmentIndex == 1 && reportTwoType != nil ? reportTwoType : reportOneType
+        
+        switch reportType! {
         case .Single:
             return DisplayInformation.ReportDescriptions.allValues.count
         case .Average:
             return DisplayInformation.AverageReportDescriptions.allValues.count
+        case .Api:
+            return DisplayInformation.ApiReportDescriptions.allValues.count
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ReportCell", forIndexPath: indexPath) as! UITableViewCell
 
+        var reportType = segmentedControl.selectedSegmentIndex == 1 && reportTwoType != nil ? reportTwoType : reportOneType
+
         // Configure the cell...
-        switch reportType {
+        switch reportType! {
         case .Single:
             cell.textLabel?.text = DisplayInformation.ReportDescriptions.allValues[indexPath.row].description
             if let text = getStringValueForDescription(DisplayInformation.ReportDescriptions.allValues[indexPath.row].description) {
@@ -69,16 +83,24 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
             } else {
                 cell.detailTextLabel?.text = "N/A"
             }
+        case .Api:
+            cell.textLabel?.text = DisplayInformation.ApiReportDescriptions.allValues[indexPath.row].description
+            if let text = getStringValueForDescription(DisplayInformation.ApiReportDescriptions.allValues[indexPath.row].description) {
+                cell.detailTextLabel?.text = text
+            } else {
+                cell.detailTextLabel?.text = "N/A"
+            }
         }
         
-        cell.backgroundColor = UIColor.darkGrayColor()
         cell.textLabel?.textColor = UIColor.lightGrayColor()
         cell.detailTextLabel?.textColor = UIColor.lightGrayColor()
         return cell
     }
     
     private func getStringValueForDescription(description : String) -> String? {
-        switch reportType {
+        var reportType = segmentedControl.selectedSegmentIndex == 1 && reportTwoType != nil ? reportTwoType : reportOneType
+
+        switch reportType! {
         case .Single:
             switch description {
             case DisplayInformation.ReportDescriptions.AlgorithmName.description:
@@ -89,8 +111,6 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                 return (singleReport != nil) ? singleReport!.bestM.format(".4") : nil
             case DisplayInformation.ReportDescriptions.ComputationTime.description:
                 return (singleReport != nil) ? singleReport!.computationTime.format(".4") : nil
-            case DisplayInformation.ReportDescriptions.Dimension.description:
-                return (singleReport != nil) ? "\(singleReport!.dimension)" : nil
             default:
                 return nil
             }
@@ -108,11 +128,28 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                 return (averageReport != nil) ? averageReport!.stdDevBestM.format(".4") : nil
             case DisplayInformation.AverageReportDescriptions.StandardDeviationComputationTime.description:
                 return (averageReport != nil) ? averageReport!.stdDevComputationTime.format(".4") : nil
-            case DisplayInformation.AverageReportDescriptions.Dimension.description:
-                return (averageReport != nil) ? "\(averageReport!.dimension)" : nil
             default:
                 return nil
 
+            }
+        case .Api:
+            switch description {
+            case DisplayInformation.ApiReportDescriptions.AlgorithmName.description:
+                return apiReport?.algorithmName
+            case DisplayInformation.ApiReportDescriptions.FitFunctionName.description:
+                return apiReport?.fitFunctionName
+            case DisplayInformation.ApiReportDescriptions.AverageBestM.description:
+                return (apiReport != nil) ? apiReport!.bestM.format(".4") : nil
+            case DisplayInformation.ApiReportDescriptions.AverageComputationTime.description:
+                return (apiReport != nil) ? apiReport!.computationTime.format(".4") : nil
+            case DisplayInformation.ApiReportDescriptions.StandardDeviationBestM.description:
+                return (apiReport != nil) ? apiReport!.stdDevBestM.format(".4") : nil
+            case DisplayInformation.ApiReportDescriptions.StandardDeviationComputationTime.description:
+                return (apiReport != nil) ? apiReport!.stdDevComputationTime.format(".4") : nil
+            case DisplayInformation.ApiReportDescriptions.RoundTripTime.description:
+                return (apiReport != nil) ? apiReport!.roundTripTime.format(".4") : nil
+            default:
+                return nil
             }
         }
     }
@@ -134,13 +171,26 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
         }
     }
     
+    @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 1 && reportTwoType == .Api {
+            self.navigationItem.rightBarButtonItem = nil
+        } else {
+            var graphIconButton = UIButton(frame: CGRectMake(0, 0, 36, 36))
+            graphIconButton.setImage(UIImage(named: "graphIconDarkGrey.png"), forState: .Normal)
+            graphIconButton.addTarget(self, action: "graphIconPressed", forControlEvents: .TouchUpInside)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: graphIconButton)
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let navigationController = segue.destinationViewController as? GraphPickerNavigationController {
             if let segueIdentifier = segue.identifier {
                 switch segueIdentifier {
                 case kShowGraphsViewController:
                     navigationController.rootViewController?.delegate = self
-                    navigationController.rootViewController?.reportType = reportType
+                    navigationController.rootViewController?.reportType = reportOneType
                 default:
                     break
                 }
@@ -151,7 +201,7 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                 case kShowLineChartViewController:
                     viewController.title = "Report"
                     viewController.graphTitle = graphSelected?.rawValue
-                    switch reportType {
+                    switch reportOneType {
                     case .Single:
                         if let _graphSelected = graphSelected {
                             switch _graphSelected {
@@ -180,7 +230,7 @@ class ResultTableViewController: UITableViewController, GrapherPickerTableViewCo
                 case kShowBarChartViewController:
                     viewController.title = "Report"
                     viewController.graphTitle = graphSelected?.rawValue
-                    switch reportType {
+                    switch reportOneType {
                     case .Average:
                         if let _graphSelected = graphSelected {
                             switch _graphSelected {

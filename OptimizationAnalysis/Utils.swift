@@ -39,7 +39,7 @@ protocol NumericType {
 // ...but at some point the compiler doesn't know it, so we explicitly state it
 extension Double : NumericType {
     func format(f: String) -> String {
-        return NSString(format: "%\(f)f", self) as String
+        return NSString.localizedStringWithFormat("%\(f)f", self) as String
     }
 }
 extension Float  : NumericType {}

@@ -8,6 +8,13 @@
 
 import Foundation
 
+// MARK: Protocols
+protocol AppAlgorithmManagerDelegate: class {
+    func singleReportFinished(report : Report?)
+    func multipleReportFinished(report : AverageReport?)
+}
+
+
 class AppAlgorithmManager : AlgorithmManager {
     
     // MARK: Public Declarations
@@ -22,8 +29,10 @@ class AppAlgorithmManager : AlgorithmManager {
     }
     
     var fitFunction : FitFunction?
-    var lastRunSingleReport : Report? = nil
-    var lastRunMultipleReport : AverageReport? = nil
+    var lastRunSingleReport : Report?
+    var lastRunMultipleReport : AverageReport?
+    var delegate : AppAlgorithmManagerDelegate?
+
     
     // MARK: Private Declarations
     private var _algorithm = Algorithm()

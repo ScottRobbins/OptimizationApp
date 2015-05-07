@@ -29,14 +29,18 @@ class GraphPickerTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DisplayInformation.getReportGraphsForReportType(reportType).count
+        if let report = DisplayInformation.getReportGraphsForReportType(reportType) {
+            return report.count
+        } else {
+            return 0
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GraphCell", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
-        cell.textLabel?.text = DisplayInformation.getReportGraphsForReportType(reportType)[indexPath.row].description
+        cell.textLabel?.text = DisplayInformation.getReportGraphsForReportType(reportType)?[indexPath.row].description
         cell.textLabel?.textColor = UIColor.lightGrayColor()
         cell.backgroundColor = UIColor.darkGrayColor()
 
@@ -45,8 +49,9 @@ class GraphPickerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.dismissViewControllerAnimated(true) {
-            self.delegate?.graphWasSelected(DisplayInformation.getReportGraphsForReportType(self.reportType)[indexPath.row])
-            return
+            if let report = DisplayInformation.getReportGraphsForReportType(self.reportType) {
+                self.delegate?.graphWasSelected(report[indexPath.row])
+            }
         }
     }
     

@@ -9,14 +9,13 @@
 import UIKit
 import SRBubbleProgressTracker
 
-class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, AlgorithmManagerDelegate {
+class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, AppAlgorithmManagerDelegate, ApiAlgorithmManagerDelegate {
     
     // MARK: Publid Declarations
     var appAlgorithmManager : AppAlgorithmManager?
     var apiAlgorithmManager : ApiAlgorithmManager?
     
-    let kShowSingleResultTableViewControllerSegue = "kShowSingleResultTableViewControllerSegue"
-    let kShowAverageResultTableViewControllerSegue = "kShowAverageResultTableViewControllerSegue"
+    let kShowResultTableViewController = "kShowResultTableViewController"
     
     @IBOutlet weak var bubbleTrackerVerticalSpaceConstraint: NSLayoutConstraint!
     @IBOutlet weak var bubbleTrackerHeightConstraint: NSLayoutConstraint!
@@ -29,6 +28,9 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     private var currentSVContentOffset = CGPointMake(0, 0)
     private var keyBoardIsUp = false
     private var textFields = [UITextField]()
+    private var reportsFinished = 0
+    private var reportTypes : (ReportType, ReportType?) = (ReportType.Single, nil)
+
 
     // MARK: ViewControllerLifecycle and BubbleTrackerView setup
     override func viewDidLoad() {
@@ -226,6 +228,9 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
     @IBAction func runTest(sender: UIBarButtonItem) {
         if textFieldsAreValid(textFields) {
             // Lets run some shit
+            reportsFinished = 0
+            reportTypes = (ReportType.Single, nil)
+            
             fillParametersWithTextFieldValues(textFields)
             if apiAlgorithmManager?.shouldBeRun == true && !(appAlgorithmManager?.shouldBeRun == true) {
                 if apiAlgorithmManager?.shouldBeRun == true {
@@ -295,24 +300,77 @@ class ParameterSelectionViewController: UIViewController, UITextFieldDelegate, A
         return parameters
     }
     
-    func singleReportFinished(report : Report?) {
-        self.performSegueWithIdentifier(kShowSingleResultTableViewControllerSegue, sender: self)
+    func singleReportFinished(_ : Report?) {
+        reportsFinished += 1
+        
+        if (apiAlgorithmManager?.shouldBeRun == true && reportsFinished == 2) {
+            reportTypes = (reportTypes.0, ReportType.Single)
+            self.performSegueWithIdentifier(kShowResultTableViewController, sender: self)
+        } else if apiAlgorithmManager?.shouldBeRun == false {
+            reportTypes = (ReportType.Single, reportTypes.1)
+            self.performSegueWithIdentifier(kShowResultTableViewController, sender: self)
+        } else {
+            reportTypes = (ReportType.Single, nil)
+            reportTypes.1 = .Single
+        }
     }
     
-    func multipleReportFinished(report : AverageReport?) {
-        self.performSegueWithIdentifier(kShowAverageResultTableViewControllerSegue, sender: self)
+    func multipleReportFinished(_ : AverageReport?) {
+        reportsFinished += 1
+        
+        if (apiAlgorithmManager?.shouldBeRun == true && reportsFinished == 2) {
+            reportTypes = (reportTypes.0, ReportType.Average)
+            self.performSegueWithIdentifier(kShowResultTableViewController, sender: self)
+        } else if apiAlgorithmManager?.shouldBeRun == false {
+            reportTypes = (ReportType.Average, reportTypes.1)
+            self.performSegueWithIdentifier(kShowResultTableViewController, sender: self)
+        } else {
+            reportTypes = (ReportType.Average, nil)
+        }
+    }
+    
+    func apiReportFinished(_: ApiReport?) {
+        reportsFinished += 1
+        
+        if (appAlgorithmManager?.shouldBeRun == true && reportsFinished == 2) {
+            reportTypes = (reportTypes.0, ReportType.Api)
+            self.performSegueWithIdentifier(kShowResultTableViewController, sender: self)
+        } else if appAlgorithmManager?.shouldBeRun == false {
+            reportTypes = (ReportType.Api, reportTypes.1)
+            self.performSegueWithIdentifier(kShowResultTableViewController, sender: self)
+        } else {
+            reportTypes = (reportTypes.0, ReportType.Api)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let viewController = segue.destinationViewController as? ResultTableViewController {
             if let segueIdentifier = segue.identifier {
                 switch segueIdentifier {
-                case kShowSingleResultTableViewControllerSegue:
-                    viewController.singleReport = appAlgorithmManager?.lastRunSingleReport
-                    viewController.reportType = .Single
-                case kShowAverageResultTableViewControllerSegue:
-                    viewController.averageReport = appAlgorithmManager?.lastRunMultipleReport
-                    viewController.reportType = .Average
+                case kShowResultTableViewController:
+                    viewController.reportOneType = reportTypes.0
+                    switch reportTypes.0 {
+                    case .Single:
+                        viewController.singleReport = appAlgorithmManager?.lastRunSingleReport
+                    case .Average:
+                        viewController.averageReport = appAlgorithmManager?.lastRunMultipleReport
+                    case .Api:
+                        viewController.apiReport = apiAlgorithmManager?.lastRunApiReport
+                    }
+                    
+                    if let reportType = reportTypes.1 {
+                        viewController.reportTwoType = reportType
+                        
+                        switch reportType {
+                        case .Single:
+                            viewController.singleReport = appAlgorithmManager?.lastRunSingleReport
+                        case .Average:
+                            viewController.averageReport = appAlgorithmManager?.lastRunMultipleReport
+                        case .Api:
+                            viewController.apiReport = apiAlgorithmManager?.lastRunApiReport
+                        }
+                    }
+                
                 default:
                     break
                 }

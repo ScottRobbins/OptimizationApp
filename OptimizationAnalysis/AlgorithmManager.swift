@@ -12,21 +12,16 @@ import Foundation
 let kAlgorithmsHaveUpdated = "kAlgorithmsHaveUpdated"
 let kFitFunctionsHaveUpdated = "kFitFunctionsHaveUpdated"
 
-// MARK: Protocols
-protocol AlgorithmManagerDelegate: class {
-    func singleReportFinished(report : Report?)
-    func multipleReportFinished(report : AverageReport?)
-}
 
 enum ReportType {
     case Single
     case Average
+    case Api
 }
 
 class AlgorithmManager {
     // MARK: Public Declarations
     var shouldBeRun = false
-    var delegate : AlgorithmManagerDelegate? = nil
     var algorithm = Algorithm()
         
     // MARK: Initializers

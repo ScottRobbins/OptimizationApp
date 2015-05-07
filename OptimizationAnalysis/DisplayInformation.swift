@@ -145,9 +145,8 @@ class DisplayInformation {
         case FitFunctionName = "Fit Function"
         case BestM = "Best M"
         case ComputationTime = "Computation Time"
-        case Dimension = "Dimension"
         
-        static let allValues = [AlgorithmName, FitFunctionName, BestM, ComputationTime, Dimension]
+        static let allValues = [AlgorithmName, FitFunctionName, BestM, ComputationTime]
         
         var description : String {
             get {
@@ -164,10 +163,29 @@ class DisplayInformation {
         case AverageComputationTime = "Avg Computation Time"
         case StandardDeviationBestM = "Std Dev Best M"
         case StandardDeviationComputationTime = "Std Dev Computation Time"
-        case Dimension = "Dimension"
         
         
-        static let allValues = [AlgorithmName, FitFunctionName, AverageBestM, AverageComputationTime, StandardDeviationBestM, StandardDeviationComputationTime, Dimension]
+        static let allValues = [AlgorithmName, FitFunctionName, AverageBestM, AverageComputationTime, StandardDeviationBestM, StandardDeviationComputationTime]
+        
+        var description : String {
+            get {
+                return self.rawValue
+            }
+        }
+    }
+    
+    // Average Report Enum
+    enum ApiReportDescriptions : String, Printable {
+        case AlgorithmName = "Algorithm"
+        case FitFunctionName = "Fit Function"
+        case AverageBestM = "Avg Best M"
+        case AverageComputationTime = "Avg Computation Time"
+        case StandardDeviationBestM = "Std Dev Best M"
+        case StandardDeviationComputationTime = "Std Dev Computation Time"
+        case RoundTripTime = "Round Trip Time"
+        
+        
+        static let allValues = [AlgorithmName, FitFunctionName, AverageBestM, AverageComputationTime, StandardDeviationBestM, StandardDeviationComputationTime, RoundTripTime]
         
         var description : String {
             get {
@@ -305,12 +323,14 @@ class DisplayInformation {
         }
     }
         
-    class func getReportGraphsForReportType(reportType : ReportType) -> [ReportGraph] {
+    class func getReportGraphsForReportType(reportType : ReportType) -> [ReportGraph]? {
         switch reportType {
         case .Single:
             return [ReportGraph.IterationVsBestM]
         case .Average:
             return [ReportGraph.ReportVsBestM, ReportGraph.ReportVsComputationTime]
+        case .Api:
+            return nil
         }
     }
 }

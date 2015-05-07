@@ -106,7 +106,6 @@ class TabuSearch {
         
         report.algorithmName = DisplayInformation.DisplayAlgorithm.TabuSearch.description
         report.computationTime = computationStart.timeIntervalSinceNow * -1_000
-        report.dimension = Nd
         
         return report
     }
@@ -146,7 +145,6 @@ class TabuSearch {
         
         averageReport.averageBestM = sumM / Double(runNTimes)
         averageReport.averageComputationTime = sumComputationTime / Double(runNTimes)
-        averageReport.dimension = Nd
         averageReport.algorithmName = report.algorithmName
         averageReport.fitFunctionName = report.fitFunctionName // if there is one here, there probably isn't
         

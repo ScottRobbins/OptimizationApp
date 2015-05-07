@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "runTest(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "textFieldsAreValid(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "textFieldsAreValid(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "449392517.986531"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "graphIconPressed()"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "graphWasSelected(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/GraphPickerTableViewController.swift"
-            timestampString = "449201448.640655"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,61 +298,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/GraphPickerTableViewController.swift"
-            timestampString = "449203797.749495"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/GraphPickerTableViewController.swift"
-            timestampString = "449203173.51334"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OptimizationAnalysis.GraphPickerTableViewController.tableView (OptimizationAnalysis.GraphPickerTableViewController)(ObjectiveC.UITableView, didSelectRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ()"
-                  moduleName = "OptimizationAnalysis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/samuelrobbins/Documents/OptimizationAnalysis/OptimizationAnalysis/GraphPickerTableViewController.swift"
-                  timestampString = "449204612.925567"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "23">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "reabstraction thunk helper from @callee_owned () -&gt; (@unowned ()) to @callee_owned (@in ()) -&gt; (@out ())"
-                  moduleName = "OptimizationAnalysis"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/samuelrobbins/Documents/OptimizationAnalysis/OptimizationAnalysis/GraphPickerTableViewController.swift"
-                  timestampString = "449204612.925973"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -362,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -426,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -442,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -458,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -474,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -522,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -538,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -554,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ResultTableViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452665951.260169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -586,28 +538,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "451290812.57005"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "getAlgorithms()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "runAlgorithm()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -698,11 +634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285522.149325"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "getAlgorithms()"
             landmarkType = "5">
          </BreakpointContent>
@@ -714,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285531.79829"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getAlgorithms()"
             landmarkType = "5">
             <Locations>
@@ -762,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285533.514699"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "getAlgorithms()"
             landmarkType = "5">
          </BreakpointContent>
@@ -778,11 +714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285552.462957"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "parseAlgorithmJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,11 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285557.102121"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "getAlgorithms()"
             landmarkType = "5">
          </BreakpointContent>
@@ -810,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285601.765111"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "parseAlgorithmJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,55 +762,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452285703.423087"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "parseAlgorithmJSON(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "parseAlgorithmJSON(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "parseAlgorithmJSON(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -890,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "parseAlgorithmJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -906,11 +794,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "parseAlgorithmJSON(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
+            timestampString = "452582732.417334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "parseAlgorithmJSON(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
+            timestampString = "452582732.417334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "parseAlgorithmJSON(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
+            timestampString = "452582732.417334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "parseFitFunctionJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -922,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "parseFitFunctionJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -938,11 +874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "parseFitFunctionJSON(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -970,27 +906,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "runAlgorithm()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "buildParametersJSONForAlgorithm()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1002,11 +922,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "getParametersFromInput(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1018,28 +938,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452582732.417334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "getParametersFromInput(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "runAlgorithm()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1050,12 +954,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452418373.945016"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "parseAlgorithmResponseJSON(_:)"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "parseAlgorithmResponseJSON(_:numRuns:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1066,11 +970,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419836.255615"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "fillParametersWithTextFieldValues(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1082,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419893.068798"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "textFieldsAreValid(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1098,11 +1002,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419901.164514"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "textFieldsAreValid(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1114,11 +1018,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452419917.468312"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "textFieldsAreValid(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1130,11 +1034,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452420043.224024"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "getRightViewTextViewWithIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1146,11 +1050,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
-            timestampString = "452420048.79591"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "getRightViewTextViewWithIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1178,11 +1082,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/AppAlgorithmManager.swift"
-            timestampString = "452420272.022486"
+            timestampString = "452581193.661096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "AppAlgorithmManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -1194,11 +1098,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/AppAlgorithmManager.swift"
-            timestampString = "452420440.067841"
+            timestampString = "452581193.661096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "runAlgorithmSingleTime()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1210,12 +1114,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
-            timestampString = "452420706.903793"
+            timestampString = "452662352.098453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "runAlgorithm()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
+            timestampString = "452662352.098453"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "parseAlgorithmResponseJSON(_:numRuns:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ApiAlgorithmManager.swift"
+            timestampString = "452662352.098453"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "parseAlgorithmResponseJSON(_:numRuns:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/GraphPickerTableViewController.swift"
+            timestampString = "452662352.098453"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
+            timestampString = "452662456.157551"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "singleReportFinished(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
+            timestampString = "452662458.020915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "multipleReportFinished(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
+            timestampString = "452662460.071391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "apiReportFinished(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ParameterSelectionViewController.swift"
+            timestampString = "452662653.249554"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ResultTableViewController.swift"
+            timestampString = "452665951.260169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OptimizationAnalysis/ResultTableViewController.swift"
+            timestampString = "452665951.260169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

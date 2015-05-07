@@ -16,7 +16,6 @@ class AverageReport {
     var averageComputationTime = Double()
     var stdDevBestM = Double()
     var stdDevComputationTime = Double()
-    var dimension = Int()
     var allReportsBestMs : [Double] {
         return reports.map({$0.bestM})
     }

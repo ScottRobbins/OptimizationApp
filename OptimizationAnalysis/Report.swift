@@ -14,7 +14,6 @@ class Report {
     var bestSolution = [Double]()
     var bestM = 0.0
     var computationTime = Double()
-    var dimension = Int()
     var iterations = [Iteration]()
     var allBestMs : [Double] {
         return iterations.map({$0.bestM})
