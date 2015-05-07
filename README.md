@@ -1,4 +1,4 @@
-# CS4900 Optimization APP
+# CS4900 Optimization App
 
 ###Description
 An app written in swift to record and execute a handful of linear optimization algorithms with the ability to select certain variables. Afterward you can see your results, informational graphs, and compare your results to running on our server.
