@@ -37,7 +37,7 @@ class TabuSearch {
         var report = Report()
         var tabuList = [Double]()
         var newM = 0.0, wM = 0.0, M = 0.0, bestM = 0.0
-        var maxTabuListLength = 100 // TODO: Should verify what this default is
+        var maxTabuListLength = Nd * 10
         
         report.bestSolution = R
         if let temp = fitFunc(R) {
