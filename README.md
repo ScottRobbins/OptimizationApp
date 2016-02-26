@@ -1,5 +1,7 @@
 # CS4900 Optimization App
 
+[![codebeat](https://codebeat.co/badges/fc4cd2c3-9c6e-4cd1-a637-65340008abcc)](https://codebeat.co/projects/github-com-scottrobbins-optimizationapp)
+
 ###Description
 An app written in Swift to execute a handful of linear optimization algorithms with the ability to select certain variables. Afterward you can see your results, informational graphs, and compare your results to running on our server.
 
